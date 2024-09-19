@@ -12,17 +12,39 @@ from .forms import CustomUserCreationForm
 from .models import Place, Review
 from django.http import JsonResponse
 from django.contrib.auth import logout as auth_logout
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import Place, Review
-from .forms import ReviewForm
 
+
+# def home(request):
+#     context = {
+#         'user_logged_in': request.user.is_authenticated
+#     }
+#     return render (request, 'guide/home.html')
+
+# from django.shortcuts import render
+# from django.contrib.auth.decorators import login_required
+
+
+# def home(request):
+#     user = request.user
+#     profile_picture_url = None
+
+#     # Check if the user has a UserProfile and if it has a profile picture
+#     if hasattr(user, 'userprofile'):
+#         profile_picture = user.userprofile.profile_picture
+#         if profile_picture:
+#             profile_picture_url = profile_picture.url  # Only access the URL if the file exists
+
+#     return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
+
+from django.shortcuts import render
 
 def home(request):
-    context = {
-        'user_logged_in': request.user.is_authenticated
-    }
-    return render (request, 'guide/home.html')
+    profile_picture_url = None
+    if request.user.is_authenticated:
+        profile_picture_url = request.user.userprofile.profile_picture.url if request.user.userprofile.profile_picture else None
+    return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
+
+
 
 
 def district_page(request):
@@ -86,59 +108,21 @@ def search_view(request):
     return JsonResponse({'suggestions': [], 'exact_match': None})
 
 
-@csrf_exempt
-def handle_auth(request):
-    if request.method == 'POST':
-        if 'application/json' in request.content_type:
-            try:
-                data = json.loads(request.body)
-                action = data.get('action')
-
-                if action == 'login':
-                    username = data.get('username')
-                    password = data.get('password')
-                    user = authenticate(request, username=username, password=password)
-                    if user is not None:
-                        auth_login(request, user)
-                        return JsonResponse({'status': 'success', 'message': 'Logged in successfully', 'redirect_url': '/district/'})
-                    return JsonResponse({'status': 'error', 'message': 'Invalid credentials'})
-
-                elif action == 'signup':
-                    # Handle JSON payloads for signup if needed
-                    pass
-
-                return JsonResponse({'status': 'error', 'message': 'Invalid action'})
-            except json.JSONDecodeError:
-                return JsonResponse({'status': 'error', 'message': 'Invalid JSON'})
-        elif 'multipart/form-data' in request.content_type:
-            if request.POST:
-                form = CustomUserCreationForm(request.POST, files=request.FILES)
-                if form.is_valid():
-                    form.save()
-                    return JsonResponse({'status': 'success', 'message': 'Account created successfully'})
-                else:
-                    errors = form.errors.get_json_data()
-                    return JsonResponse({'status': 'error', 'message': 'Error creating account', 'errors': errors})
-            return JsonResponse({'status': 'error', 'message': 'Form data is missing'})
-        else:
-            return JsonResponse({'status': 'error', 'message': 'Expected JSON or multipart/form-data request'})
-    
-    return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
-    
-
-def handle_logout(request):
-    if request.method == 'POST':
-        auth_logout(request)
-        return JsonResponse({'status': 'success', 'message': 'Logged out successfully'})
-    return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
-
-
 def check_login_status(request):
     """Endpoint to check login status."""
     if request.user.is_authenticated:
         return JsonResponse({'logged_in': True})
     return JsonResponse({'logged_in': False})
 
+
+
+
+
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Place, Review
+from .forms import ReviewForm
 
 #@login_required
 def submit_review(request, place_id):
@@ -165,6 +149,8 @@ def submit_review(request, place_id):
     return render(request, 'guide/place_detail.html', {'form': form, 'place': place})
 
 
+
+
 def load_more_reviews(request, place_id):
     place = get_object_or_404(Place, id=place_id)
     reviews = place.review_set.all().order_by('ratings')[3:]  # Skip the first 3 reviews for initial display
@@ -186,3 +172,53 @@ def load_more_reviews(request, place_id):
     })
 
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib import messages
+from .forms import CustomUserCreationForm
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST, request.FILES)  # Include files for profile picture
+        if form.is_valid():
+            user = form.save()  # Save the user and user profile
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            
+            # Authenticate the user after registration
+            user = authenticate(username=username, password=password)
+            
+            if user is not None:
+                auth_login(request, user)  # Automatically log the user in
+                messages.success(request, f'Account created successfully! Welcome, {username}')
+                return redirect('home')  # Redirect to home or any other page after login
+        else:
+            messages.error(request, "There was an error with your registration.")
+    else:
+        form = CustomUserCreationForm()
+    
+    return render(request, 'guide/register.html', {'form': form})
+
+
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def profile_view(request):
+    user = request.user
+    profile_picture = None
+    
+    if hasattr(user, 'userprofile'):
+        profile_picture = user.userprofile.profile_picture
+
+    return render(request, 'guide/profile.html', {'profile_picture': profile_picture})
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.views import View
+
+class CustomLogoutView(View):
+    def post(self, request):
+        logout(request)
+        return redirect(reverse('home'))  # Change 'home' to your actual home URL name

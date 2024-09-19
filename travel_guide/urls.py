@@ -20,6 +20,8 @@ from django.urls import path
 from guide import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
+
 
 
 
@@ -32,11 +34,11 @@ urlpatterns = [
     path('feedback/<int:place_id>/', views.feedback_view, name='feedback'),
     path('feedbacks/', views.all_feedback_view, name='all_feedbacks'),
     path('search/', views.search_view, name='search'),
-    path('auth/', views.handle_auth, name='handle_auth'),
-    path('logout/', views.handle_logout, name='handle_logout'),
-    path('check_login_status/', views.check_login_status, name='check_login_status'),
     path('place/<int:place_id>/review/', views.submit_review, name='submit_review'),
     path('place/<int:place_id>/review/load_more/', views.load_more_reviews, name='load_more_reviews'),
+    path('register/', views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='guide/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'), 
 ]
 
 if settings.DEBUG:

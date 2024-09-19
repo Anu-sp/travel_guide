@@ -1,0 +1,16 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login</title>
+</head>
+<body>
+    {% if user.userprofile %}
+    <img src="{{ user.userprofile.profile_picture.url }}" alt="Profile Picture">
+{% else %}
+    <p>No profile picture available.</p>
+{% endif %}
+
+    
+</body>
+</html>
