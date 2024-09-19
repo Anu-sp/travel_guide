@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ place.name }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .header {
+            width: 100%;
+            color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 5px 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-start;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+        .header nav {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .header a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .header a:hover {
+            background-color: #576e88;
+            transform: scale(1.1);
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            box-sizing: border-box;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .swiper {
+            position: relative;
+            flex: 1;
+            height: 500px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .details {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            flex: 1;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-left: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            margin: 10px 0;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        h1 {
+            margin: 50px 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+            padding-top: 15px;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .reviews-container {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .reviews-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .reviews {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .review-item {
+            flex: 0 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            width: 250px; /* Adjust width as needed */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #seeMoreButton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #576e88;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 10px auto;
+        }
+        #seeMoreButton:hover {
+            background-color: #435a6e;
+        }
+        #moreReviews {
+            display: none;
+            margin-top: 10px;
+        }
+        /* Search Suggestions Styles */
+        #searchResults {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            width: calc(100% - 20px);
+        }
+        .search-result-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .search-result-item:hover {
+            background-color: #f0f0f0;
+        }
+       /* Modal Trigger Button Styling */
+#writeReviewButton {
+    padding: 12px 24px;
+    background-color: #576e88; /* Same as navbar button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#writeReviewButton:hover {
+    background-color: #435a6e; /* Darker shade */
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Inline modal that appears below the details */
+.modal {
+    display: none; /* Hidden by default */
+    position: relative; /* Not fixed anymore */
+    width: 100%; /* Full width of the container */
+    margin-top: 20px; /* Space between details and form */
+    animation: fadeIn 0.5s ease; /* Add fade-in effect */
+}
+
+/* Modal content box styling */
+.modal-content {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(0.95);
+}
+
+/* Effect when the modal appears */
+.modal-content:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    transform: scale(1);
+}
+
+/* Review form styling inside modal */
+#reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#reviewForm input, #reviewForm textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+#reviewForm input:focus, #reviewForm textarea:focus {
+    border-color: #576e88; /* Matching the button color */
+    outline: none;
+}
+
+/* Submit Button Styling */
+#reviewForm button[type="submit"] {
+    padding: 12px;
+    background-color: #576e88; /* Same as the write review button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#reviewForm button[type="submit"]:hover {
+    background-color: #435a6e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'district_detail' place.district.id %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
+            {% if place.district.id %}
+                <a href="{% url 'feedback' place_id=place.id %}"><i class="fas fa-edit"></i>Feedback</a>
+            {% else %}
+                <a href="#">Back</a>
+            {% endif %}
+            <!-- Search Form -->
+            <form id="searchForm" action="{% url 'search' %}" method="GET" style="position: relative;">
+                <input type="text" id="searchInput" name="query" placeholder="Search places..." 
+                    style="padding: 5px; border-radius: 5px; border: 1px solid #000; margin-right: 5px;"/>
+                <button type="submit" 
+                    style="padding: 5px 10px; background-color: #576e88; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Search
+                </button>
+                <div id="searchResults"></div>
+            </form>
+        </nav>
+    </div>
+    <h1>{{ place.name }}</h1>
+    <div class="container">
+        {% if place.placeimage_set.all %}
+        <!-- Swiper Container -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                {% for image in place.placeimage_set.all %}
+                <div class="swiper-slide">
+                    <img src="{{ image.image.url }}" alt="{{ place.name }} image">
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        {% else %}
+        <p>No images available for this place.</p>
+        {% endif %}
+
+        <!-- Details Section -->
+        <div class="details">
+            <p><strong>Description:</strong> {{ place.description }}</p>
+            <p><strong>Distance:</strong> {{ place.distance }}</p>
+            <p><strong>Best time to visit:</strong> {{ place.best_time_to_visit }}</p>
+            <p><strong>Things to Do:</strong> {{ place.things_to_do }}</p>
+            <p><strong>Entry Fee:</strong> {{ place.entry_fee }}</p>
+            <p><strong>Timings:</strong> {{ place.timings }}</p>
+            <p><strong>How to reach:</strong> {{ place.how_to_reach }}</p>
+
+            <!-- Trigger Modal Button -->
+            <button id="writeReviewButton">Write a Review</button>
+
+            <!-- Review Modal -->
+            <div id="reviewModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Write a Review</h2>
+                    <form id="reviewForm" method="POST" action="{% url 'submit_review' place.id %}">
+                        {% csrf_token %}
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" {% if user.is_authenticated %} value="{{ user.username }}" {% endif %} required>
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+                        </div>
+                        <div>
+                            <label for="rating">Rating (1-5):</label>
+                            <input type="number" id="rating" name="rating" min="1" max="5" required>
+                        </div>
+                        <div>
+                            <label for="comments">Comments:</label>
+                            <textarea id="comments" name="comments" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+<div class="reviews-container">
+    <h2 class="reviews-title">Reviews</h2>
+    <div class="reviews">
+        {% for review in reviews %}
+        <div class="review-item">
+            <strong>{{ review.name }}</strong> ({{ review.created_at|date:"F j, Y" }}) - Rating: {{ review.rating }}/5
+            <p>{{ review.comments }}</p>
+        </div>
+        {% empty %}
+        <p>No reviews yet. Be the first to write one!</p>
+        {% endfor %}
+
+        {% if reviews|length > 4 %}
+        <button id="seeMoreButton">See More</button>
+        <div id="moreReviews" style="display: none;">
+            {% for review in reviews|slice:"4:" %}
+            <div class="review-item">
+                <strong>{{ review.name }}</strong> ({{ review.created_at|date:"F j, Y" }}) - Rating: {{ review.rating }}/5
+                <p>{{ review.comments }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var seeMoreButton = document.getElementById('seeMoreButton');
+            var moreReviews = document.getElementById('moreReviews');
+            
+            if (seeMoreButton && moreReviews) {
+                seeMoreButton.addEventListener('click', function() {
+                    if (moreReviews.style.display === 'none') {
+                        moreReviews.style.display = 'block';
+                        seeMoreButton.textContent = 'See Less';
+                    } else {
+                        moreReviews.style.display = 'none';
+                        seeMoreButton.textContent = 'See More';
+                    }
+                });
+            }
+
+            var modal = document.getElementById("reviewModal");
+            var btn = document.getElementById("writeReviewButton");
+            var span = document.getElementsByClassName("close")[0];
+
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+         document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const searchForm = document.getElementById('searchForm');
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.trim();
+        if (query) {
+            fetch(`/search/?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    searchResults.innerHTML = ''; // Clear previous results
+                    if (data.suggestions.length > 0) {
+                        searchResults.style.display = 'block'; // Show results
+                        data.suggestions.forEach(suggestion => {
+                            const item = document.createElement('div');
+                            item.textContent = suggestion.name;
+                            item.classList.add('search-result-item');
+                            item.dataset.id = suggestion.id; // Store the place ID
+                            searchResults.appendChild(item);
+                        });
+                    } else {
+                        searchResults.style.display = 'none'; // Hide results if no suggestions
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                    searchResults.innerHTML = '<div>Error fetching search results.</div>';
+                });
+        } else {
+            searchResults.style.display = 'none'; // Hide results if no query
+        }
+    });
+
+    // Handle clicking on a suggestion
+    searchResults.addEventListener('click', function(event) {
+        if (event.target.classList.contains('search-result-item')) {
+            const placeId = event.target.dataset.id;
+            window.location.href = `/place/${placeId}/`; // Redirect to place detail page
+        }
+    });
+
+    document.getElementById('writeReviewBtn').addEventListener('click', function() {
+    var modal = document.getElementById('reviewModal');
+    if (modal.style.display === 'none' || modal.style.display === '') {
+        modal.style.display = 'block';
+    } else {
+        modal.style.display = 'none';
+    }
+    });
+
+
+    // Handle form submission
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const query = searchInput.value.trim();
+        if (query) {
+            fetch(`/search/?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exact_match) {
+                        // If an exact match is found, redirect to the place detail page
+                        window.location.href = `/place/${data.exact_match.id}/`;
+                    } else {
+                        // If no exact match, perform a general search redirect
+                        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error performing search:', error);
+                });
+        }
+    });
+});
+    </script>
+</body>
+</html>

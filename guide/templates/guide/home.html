@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .background-image {
+            background-image: url('/static/images/home.jpg');
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            position: relative;
+        }
+
+        .description {
+            font-size: 1.5rem;
+            margin-top: 1px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .explore-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        .explore-btn:hover {
+            background-color: #477751;
+        }
+
+        p {
+            margin: 50px 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+            padding-top: 15px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .login-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 30%;
+            height: 100%;
+            overflow: auto;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .profile-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: block !important;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        
+        <!-- <img id="profilePicture" class="profile-picture" src="{{ user.profile_picture.url }}" alt="Profile Picture"> -->
+         <!-- Display profile picture if it exists -->
+    <!-- {% if user.profile.profile_picture %}
+    <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" style="width: 150px; height: 150px;">
+{% else %}
+    <p>No profile picture uploaded.</p>
+{% endif %} -->
+        <div class="description">
+            <p>Welcome to the Travel Guide! Explore the beauty and hidden gems of different districts. Find the best places to visit and plan your trip with ease.</p>
+        </div>
+        <a href="{% url 'district_page' %}" class="explore-btn"><i class="fas fa-globe"></i> Explore </a>
+        <button id="loginBtn" class="login-btn">Login</button>
+        <button id="logoutBtn" class="login-btn" style="display: none;">Logout</button>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalForm">
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <h3>Don't have an account? <a href="#" id="switchToSignup">Sign Up</a></h3>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" style="display: none;" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="signupUsername">Username:</label>
+                        <input type="text" id="signupUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email:</label>
+                        <input type="email" id="signupEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword1">Password:</label>
+                        <input type="password" id="signupPassword1" name="password1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword2">Confirm Password:</label>
+                        <input type="password" id="signupPassword2" name="password2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePicture">Profile Picture:</label>
+                        <input type="file" id="profilePicture" name="profile_picture">
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <h3>Already have an account? <a href="#" id="switchToLogin">Login</a></h3>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="logoutForm">
+                <button type="submit" class="btn">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        var loginModal = document.getElementById("loginModal");
+        var logoutModal = document.getElementById("logoutModal");
+        var loginBtn = document.getElementById("loginBtn");
+        var logoutBtn = document.getElementById("logoutBtn");
+        var profilePicture = document.getElementById("profilePicture");
+        var closeBtns = document.getElementsByClassName("close");
+
+        loginBtn.onclick = function() {
+            loginModal.style.display = "block";
+        }
+
+        logoutBtn.onclick = function() {
+            logoutModal.style.display = "block";
+        }
+
+        for (var i = 0; i < closeBtns.length; i++) {
+            closeBtns[i].onclick = function() {
+                loginModal.style.display = "none";
+                logoutModal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == loginModal) {
+                loginModal.style.display = "none";
+            } else if (event.target == logoutModal) {
+                logoutModal.style.display = "none";
+            }
+        }
+
+        // Form switch logic
+        document.getElementById("switchToSignup").onclick = function(e) {
+            e.preventDefault();
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("signupForm").style.display = "block";
+        }
+
+        document.getElementById("switchToLogin").onclick = function(e) {
+            e.preventDefault();
+            document.getElementById("signupForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }
+
+        // Handle login
+        document.getElementById("loginForm").onsubmit = function(e) {
+            e.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            fetch('/auth/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({action: 'login', username: username, password: password})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href ='/district/';
+                } else {
+                    alert('Login failed: ' + data.message);
+                }
+            });
+        }
+
+        // Handle signup
+        document.getElementById("signupForm").onsubmit = function(e) {
+            e.preventDefault();
+            var form = document.getElementById("signupForm");
+            var formData = new FormData(form);
+            fetch('/auth/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Signup failed: ' + data.message);
+                }
+            });
+        }
+
+        // Handle logout
+        document.getElementById("logoutForm").onsubmit = function(e) {
+            e.preventDefault();
+            fetch('/logout/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Logout failed: ' + data.message);
+                }
+            });
+        }
+
+        fetch('/check_login_status/')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Login Status:', data.logged_in);
+        console.log('Profile Picture URL:', data.profile_picture);
+
+        if (data.logged_in) {
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'block';
+            if (data.profile_picture) {
+                profilePicture.src = data.profile_picture;
+                console.log('Profile Picture src set to:', profilePicture.src);
+                profilePicture.style.display = 'block';
+            }
+        } else {
+            document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('logoutBtn').style.display = 'none';
+            profilePicture.style.display = 'none';
+        }
+    });
+
+
+    </script>
+</body>
+</html>

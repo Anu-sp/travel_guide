@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ district.name }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url("{% if district.image %}{{ district.image.url }}{% else %}/path/to/default/image.jpg{% endif %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            width: 100%;
+            color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 5px 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-start;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+        .header nav {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .header a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .header a:hover {
+            background-color: #576e88;
+            transform: scale(1.1);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 60px 10px 40px; /* Margin-top adjusted for header height */
+            width: calc(100% - 20px); /* Width adjusted for padding */
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .main-content.visible {
+            opacity: 1;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        a {
+            text-decoration: none;
+            font-size: 1.5em;
+            color: black;
+            font-weight: bold;
+        }
+        a:hover {
+            color: rgb(88, 23, 23);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            width: 100%;
+            padding: 5px 10px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+        /* Search Suggestions Styles */
+        #searchResults {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            width: calc(100% - 20px);
+        }
+        .search-result-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .search-result-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'district_page' %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
+            
+            <!-- Search Form -->
+            <form id="searchForm" action="{% url 'search' %}" method="GET" style="position: relative;">
+                <input type="text" id="searchInput" name="query" placeholder="Search places..." 
+                    style="padding: 5px; border-radius: 5px; border: 1px solid #000; margin-right: 5px;"/>
+                <button type="submit" 
+                    style="padding: 5px 10px; background-color: #576e88; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Search
+                </button>
+                <div id="searchResults"></div>
+            </form>
+        </nav>
+    </div>
+    
+    <div class="main-content visible">
+        <h1>Places to visit in {{ district.name }}</h1>
+        <ul>
+            {% for place in places %}
+            <li class="card">
+                <a href="{% url 'place_detail' place.id %}">{{ place.name }}</a>
+            </li>
+            {% empty %}
+            <li>No places available for this district.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <footer>
+        <p>Contact us: <a href="mailto:annapoornaspanu@gmail.com">anu@gmail.com</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const searchForm = document.getElementById('searchForm');
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.trim();
+        if (query) {
+            fetch(`/search/?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    searchResults.innerHTML = ''; // Clear previous results
+                    if (data.suggestions.length > 0) {
+                        searchResults.style.display = 'block'; // Show results
+                        data.suggestions.forEach(suggestion => {
+                            const item = document.createElement('div');
+                            item.textContent = suggestion.name;
+                            item.classList.add('search-result-item');
+                            item.dataset.id = suggestion.id; // Store the place ID
+                            searchResults.appendChild(item);
+                        });
+                    } else {
+                        searchResults.style.display = 'none'; // Hide results if no suggestions
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                    searchResults.innerHTML = '<div>Error fetching search results.</div>';
+                });
+        } else {
+            searchResults.style.display = 'none'; // Hide results if no query
+        }
+    });
+
+    // Handle clicking on a suggestion
+    searchResults.addEventListener('click', function(event) {
+        if (event.target.classList.contains('search-result-item')) {
+            const placeId = event.target.dataset.id;
+            window.location.href = `/place/${placeId}/`; // Redirect to place detail page
+        }
+    });
+
+    // Handle form submission
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const query = searchInput.value.trim();
+        if (query) {
+            fetch(`/search/?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exact_match) {
+                        // If an exact match is found, redirect to the place detail page
+                        window.location.href = `/place/${data.exact_match.id}/`;
+                    } else {
+                        // If no exact match, perform a general search redirect
+                        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error performing search:', error);
+                });
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .header nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #b86464;
+            transition: background-color 0.3s ease;
+        }
+        .header a:hover {
+            background-color: #576e88;
+        }
+        .feedback-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .feedback-container h1 {
+            margin-bottom: 20px;
+        }
+        .feedback-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .feedback-item:last-child {
+            border-bottom: none;
+        }
+        .feedback-item p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'district_page' %}">Back</a>
+        </nav>
+    </div>
+
+    <div class="feedback-container">
+        <h1>All Feedback</h1>
+        {% if feedbacks %}
+            {% for feedback in feedbacks %}
+                <div class="feedback-item">
+                    <h2>{{ feedback.place.name }}</h2>
+                    <p><strong>{{ feedback.name }}</strong> ({{ feedback.email }})</p>
+                    <p>{{ feedback.comments }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No feedback available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
