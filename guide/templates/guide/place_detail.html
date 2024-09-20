@@ -109,9 +109,6 @@
                 opacity: 1;
             }
         }
-        
-
-        
         .close {
             color: #aaa;
             float: right;
@@ -293,7 +290,7 @@
             height: 25px;
             border-radius: 50%;
           
-            margin-left: 900px;
+            margin-left: 1020px;
         }
     </style>
 </head>
@@ -302,11 +299,7 @@
         <nav>
             <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
             <a href="{% url 'district_detail' place.district.id %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
-            {% if place.district.id %}
-                <a href="{% url 'feedback' place_id=place.id %}"><i class="fas fa-edit"></i>Feedback</a>
-            {% else %}
-                <a href="#">Back</a>
-            {% endif %}
+            
             <!-- Search Form -->
             <form id="searchForm" action="{% url 'search' %}" method="GET" style="position: relative;">
                 <input type="text" id="searchInput" name="query" placeholder="Search places..." 
@@ -390,40 +383,28 @@
                 </div>
             </div>
             <!-- Login Prompt -->
-<div id="loginPrompt" style="display: none;">
-    <p>You need to be logged in to submit a review.</p>
-    <a href="{% url 'home' %}">Log in here</a>
-</div>
+            <div id="loginPrompt" style="display: none;">
+                <p>You need to be logged in to submit a review.</p>
+                <a href="{% url 'home' %}">Log in here</a>
+            </div>
         </div>
     </div>
 
     
     <!-- Reviews Section -->
-<div class="reviews-container">
-    <h2 class="reviews-title">Reviews</h2>
-    <div class="reviews">
-        {% for review in reviews %}
-        <div class="review-item">
-            <strong>{{ review.name }}</strong> ({{ review.created_at|date:"F j, Y" }}) - Rating: {{ review.rating }}/5
-            <p>{{ review.comments }}</p>
-        </div>
-        {% empty %}
-        <p>No reviews yet. Be the first to write one!</p>
-        {% endfor %}
-
-        {% if reviews|length > 4 %}
-        <button id="seeMoreButton">See More</button>
-        <div id="moreReviews" style="display: none;">
-            {% for review in reviews|slice:"4:" %}
+    <div class="reviews-container">
+        <h2 class="reviews-title">Reviews</h2>
+        <div class="reviews">
+            {% for review in reviews %}
             <div class="review-item">
                 <strong>{{ review.name }}</strong> ({{ review.created_at|date:"F j, Y" }}) - Rating: {{ review.rating }}/5
                 <p>{{ review.comments }}</p>
             </div>
+            {% empty %}
+            <p>No reviews yet. Be the first to write one!</p>
             {% endfor %}
         </div>
-        {% endif %}
     </div>
-</div>
 
 
     <!-- Scripts -->
@@ -477,7 +458,7 @@
             }
         });
 
-         document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
     const searchForm = document.getElementById('searchForm');
@@ -519,15 +500,7 @@
         }
     });
 
-    // document.getElementById('writeReviewBtn').addEventListener('click', function() {
-    // var modal = document.getElementById('reviewModal');
-    // if (modal.style.display === 'none' || modal.style.display === '') {
-    //     modal.style.display = 'block';
-    // } else {
-    //     modal.style.display = 'none';
-    // }
-    // });
-
+   
     document.getElementById('writeReviewButton').addEventListener('click', function() {
         var isAuthenticated = this.getAttribute('data-authenticated') === "true";
         var modal = document.getElementById('reviewModal');
@@ -545,7 +518,6 @@
     document.querySelector('.close').addEventListener('click', function() {
         document.getElementById('reviewModal').style.display = 'none';
     });
-
 
     // Handle form submission
     searchForm.addEventListener('submit', function(event) {
@@ -569,6 +541,6 @@
         }
     });
 });
-    </script>
+</script>
 </body>
 </html>
