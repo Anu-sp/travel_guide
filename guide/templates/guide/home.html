@@ -31,12 +31,11 @@
             top: 20px;
             right: 20px;
             display: flex;
-            gap: 10px; /* Space between buttons */
+            gap: 10px;
         }
 
         .description {
             font-size: 1.5rem;
-            margin-top: 1px;
             position: absolute;
             top: 20px;
             left: 50%;
@@ -52,7 +51,8 @@
             font-size: 1.2rem;
             margin: 20px auto;
         }
-        .auth-btn, .logout-btn{
+
+        .auth-btn, .logout-btn {
             background-color: #28a745;
             color: white;
             padding: 10px 20px;
@@ -61,11 +61,12 @@
             font-size: 1.2rem;
             margin: 20px auto;
         }
+
         .explore-btn:hover, .auth-btn:hover, .logout-btn:hover {
             background-color: #477751;
         }
 
-        p {
+        h1 {
             margin: 50px 0;
             font-size: 36px;
             font-weight: bold;
@@ -97,6 +98,42 @@
             object-fit: cover;
             margin-top: 20px;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: absolute; /* Change to absolute */
+            z-index: 1; 
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for centering */
+            top: 400px; /* Position below the Explore button */
+            width: 100%; /* Optional: Set a width */
+            max-width: 800px; /* Optional: Limit the max width */
+            padding-top: 20px; /* Add some padding to the top */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            border: 1px solid #888;
+            border-radius: 5px;
+            padding: 20px; /* Add padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+        }
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -113,16 +150,83 @@
                     <p>No profile picture available.</p>
                 {% endif %}
             {% else %}
-                <a href="/login/" class="auth-btn">Login</a>
-                <a href="{% url 'register' %}" class="auth-btn">Register</a>
+                <button class="auth-btn" id="loginBtn">Login</button>
+                <button class="auth-btn" id="registerBtn">Register</button>
             {% endif %}
         </div>
         <div class="description">
-            <p>Welcome to the Travel Guide! <br>
+            <h1>Welcome to the Travel Guide! <br>
                 Explore the beauty and hidden gems of different districts. <br>
-                Find the best places to visit and plan your trip with ease.</p>
+                Find the best places to visit and plan your trip with ease.</h1>
         </div>
         <a href="{% url 'district_page' %}" class="explore-btn"><i class="fas fa-globe"></i> Explore </a>
     </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>Register</h2>
+            <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ register_form.as_p }}
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        var loginModal = document.getElementById("loginModal");
+        var registerModal = document.getElementById("registerModal");
+
+        // Get buttons
+        var loginBtn = document.getElementById("loginBtn");
+        var registerBtn = document.getElementById("registerBtn");
+
+        // Get close buttons
+        var closeLogin = document.getElementById("closeLogin");
+        var closeRegister = document.getElementById("closeRegister");
+
+        // Open modals
+        loginBtn.onclick = function() {
+            loginModal.style.display = "block";
+        }
+
+        registerBtn.onclick = function() {
+            registerModal.style.display = "block";
+        }
+
+        // Close modals
+        closeLogin.onclick = function() {
+            loginModal.style.display = "none";
+        }
+
+        closeRegister.onclick = function() {
+            registerModal.style.display = "none";
+        }
+
+        // Close modals when clicking outside of them
+        window.onclick = function(event) {
+            if (event.target == loginModal) {
+                loginModal.style.display = "none";
+            } else if (event.target == registerModal) {
+                registerModal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

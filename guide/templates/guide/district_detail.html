@@ -127,6 +127,14 @@
         .search-result-item:hover {
             background-color: #f0f0f0;
         }
+        .profile-picture {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            
+            margin-left: 1045px;
+        }
     </style>
 </head>
 <body>
@@ -134,6 +142,9 @@
         <nav>
             <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
             <a href="{% url 'district_page' %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
+            {% if profile_picture_url %}
+    
+
             
             <!-- Search Form -->
             <form id="searchForm" action="{% url 'search' %}" method="GET" style="position: relative;">
@@ -145,6 +156,10 @@
                 </button>
                 <div id="searchResults"></div>
             </form>
+            <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture">
+            {% else %}
+                <p>No profile picture available.</p>
+            {% endif %}
         </nav>
     </div>
     

@@ -33,13 +33,13 @@
         .header nav {
             display: flex;
             gap: 15px;
-            align-items: center;
+            
         }
         .header a {
             color: black;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
+            
             font-size: 1.5em;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
@@ -288,7 +288,14 @@
         opacity: 1;
     }
 }
-
+.profile-picture {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            
+            margin-left: 1000px;
+        }
 
     </style>
 </head>
@@ -312,6 +319,12 @@
                 </button>
                 <div id="searchResults"></div>
             </form>
+            {% if profile_picture_url %}
+            <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture">
+            {% else %}
+            <p>No profile picture available.</p>
+            {% endif %}
+
         </nav>
     </div>
     <h1>{{ place.name }}</h1>

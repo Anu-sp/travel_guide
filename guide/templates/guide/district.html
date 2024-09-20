@@ -46,9 +46,10 @@
             color: black;
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 15px;
+           
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
+          
         }
 
         .header a:hover {
@@ -128,6 +129,15 @@
             background-color: #333;
             transform: scale(1.1);
         }
+        
+        .profile-picture {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            
+            margin-left: 1350px;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +145,13 @@
         <nav>
             <a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
         </nav>
+        {% if user.is_authenticated %}
+        {% if profile_picture_url %}
+            <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture">
+        {% else %}
+            <p>No profile picture available.</p>
+        {% endif %}
+    {% endif %}
     </div>
 
     <div class="container">

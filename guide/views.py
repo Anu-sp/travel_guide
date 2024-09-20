@@ -3,64 +3,96 @@ from django.urls import reverse
 from .models import District,Place,Feedback
 from .forms import FeedbackForm
 from django.contrib.auth import authenticate, login as auth_login
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-import json
 from django.contrib.auth import logout
-from django.http import JsonResponse
 from .forms import CustomUserCreationForm
 from .models import Place, Review
 from django.http import JsonResponse
-from django.contrib.auth import logout as auth_logout
+from .models import District, UserProfile  
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from .forms import ReviewForm
 
 
-# def home(request):
-#     context = {
-#         'user_logged_in': request.user.is_authenticated
-#     }
-#     return render (request, 'guide/home.html')
-
-# from django.shortcuts import render
-# from django.contrib.auth.decorators import login_required
-
-
-# def home(request):
-#     user = request.user
-#     profile_picture_url = None
-
-#     # Check if the user has a UserProfile and if it has a profile picture
-#     if hasattr(user, 'userprofile'):
-#         profile_picture = user.userprofile.profile_picture
-#         if profile_picture:
-#             profile_picture_url = profile_picture.url  # Only access the URL if the file exists
-
-#     return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
-
-from django.shortcuts import render
 
 def home(request):
     profile_picture_url = None
     if request.user.is_authenticated:
         profile_picture_url = request.user.userprofile.profile_picture.url if request.user.userprofile.profile_picture else None
-    return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
-
-
+    
+    login_form = AuthenticationForm()
+    register_form = CustomUserCreationForm()  # Use your custom form here
+    
+    return render(request, 'guide/home.html', {
+        'profile_picture_url': profile_picture_url,
+        'login_form': login_form,
+        'register_form': register_form,
+    })
 
 
 def district_page(request):
     districts = District.objects.all()
-    return render(request, 'guide/district.html', {'districts': districts})
+    profile_picture_url = None
+
+    if request.user.is_authenticated:
+        try:
+            profile = request.user.userprofile  # Change to userprofile
+            profile_picture_url = profile.profile_picture.url if profile.profile_picture else None
+        except UserProfile.DoesNotExist:
+            profile_picture_url = None  # Handle the case where the profile doesn't exist
+
+    return render(request, 'guide/district.html', {
+        'districts': districts,
+        'profile_picture_url': profile_picture_url,
+    })
+
 
 def district_detail(request, id):
     district = get_object_or_404(District, id=id)
     places = Place.objects.filter(district=district) 
-    return render(request, 'guide/district_detail.html', {'district': district, 'places': places})
+    profile_picture_url = None
+
+    if request.user.is_authenticated:
+        try:
+            profile = request.user.userprofile  # Access the user profile
+            profile_picture_url = profile.profile_picture.url if profile.profile_picture else None
+        except UserProfile.DoesNotExist:
+            profile_picture_url = None  # Handle case where profile doesn't exist
+
+    return render(request, 'guide/district_detail.html', {
+        'district': district,
+        'places': places,
+        'profile_picture_url': profile_picture_url,  # Pass the profile picture URL to the template
+    })
+
+
+# def place_detail(request, id):
+#     place = get_object_or_404(Place, id=id)
+#     # Fetch and sort reviews by rating in descending order
+#     reviews = Review.objects.filter(place=place).order_by('-rating')
+#     return render(request, 'guide/place_detail.html', {'place': place, 'reviews': reviews})
+
+from django.shortcuts import render, get_object_or_404
+from .models import Place, Review, UserProfile  # Make sure to import UserProfile
 
 def place_detail(request, id):
     place = get_object_or_404(Place, id=id)
     # Fetch and sort reviews by rating in descending order
     reviews = Review.objects.filter(place=place).order_by('-rating')
-    return render(request, 'guide/place_detail.html', {'place': place, 'reviews': reviews})
+    profile_picture_url = None
+
+    if request.user.is_authenticated:
+        try:
+            profile = request.user.userprofile  # Access the user profile
+            profile_picture_url = profile.profile_picture.url if profile.profile_picture else None
+        except UserProfile.DoesNotExist:
+            profile_picture_url = None  # Handle case where profile doesn't exist
+
+    return render(request, 'guide/place_detail.html', {
+        'place': place,
+        'reviews': reviews,
+        'profile_picture_url': profile_picture_url,  # Pass the profile picture URL to the template
+    })
+
 
 def feedback_view(request, place_id):
     place = get_object_or_404(Place, id=place_id)
@@ -118,11 +150,6 @@ def check_login_status(request):
 
 
 
-
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import Place, Review
-from .forms import ReviewForm
 
 #@login_required
 def submit_review(request, place_id):
@@ -222,3 +249,15 @@ class CustomLogoutView(View):
     def post(self, request):
         logout(request)
         return redirect(reverse('home'))  # Change 'home' to your actual home URL name
+
+
+# from django.shortcuts import render
+
+# def home(request):
+#     profile_picture_url = None
+#     if request.user.is_authenticated:
+#         profile_picture_url = request.user.userprofile.profile_picture.url if request.user.userprofile.profile_picture else None
+#     return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
+
+
+

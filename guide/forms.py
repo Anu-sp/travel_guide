@@ -42,22 +42,12 @@ class CustomUserCreationForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-      user = super().save(commit=False)
-      user.set_password(self.cleaned_data["password1"])
-    
-      if commit:
-        user.save()
-        
-        # Check if the user already has a profile
-        user_profile, created = UserProfile.objects.get_or_create(user=user)
-        
-        # If there's a profile picture in the form, save it
-        if self.cleaned_data.get('profile_picture'):
-            user_profile.profile_picture = self.cleaned_data['profile_picture']
-            user_profile.save()
-
-      return user
-
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password1"])
+        if commit:
+            user.save()
+            UserProfile.objects.create(user=user, profile_picture=self.cleaned_data.get('profile_picture'))
+        return user
 
 
 
