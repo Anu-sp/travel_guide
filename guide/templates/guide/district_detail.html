@@ -142,8 +142,7 @@
         <nav>
             <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
             <a href="{% url 'district_page' %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
-            {% if profile_picture_url %}
-    
+            
 
             
             <!-- Search Form -->
@@ -156,9 +155,10 @@
                 </button>
                 <div id="searchResults"></div>
             </form>
+            {% if profile_picture_url %}
+    
             <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture">
-            {% else %}
-                <p>No profile picture available.</p>
+            
             {% endif %}
         </nav>
     </div>

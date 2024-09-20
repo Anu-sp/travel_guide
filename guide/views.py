@@ -1,18 +1,13 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from django.urls import reverse 
-from .models import District,Place,Feedback
-from .forms import FeedbackForm
-from django.contrib.auth import authenticate, login as auth_login
-from django.contrib.auth import logout
-from .forms import CustomUserCreationForm
-from .models import Place, Review
+from .models import District,Place,Feedback, UserProfile,Review
+from .forms import FeedbackForm,ReviewForm,CustomUserCreationForm
+from django.contrib.auth import authenticate, login as auth_login,logout
 from django.http import JsonResponse
-from .models import District, UserProfile  
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from .forms import ReviewForm
-
-
+from django.contrib import messages
+from django.views import View
 
 def home(request):
     profile_picture_url = None
@@ -65,14 +60,6 @@ def district_detail(request, id):
     })
 
 
-# def place_detail(request, id):
-#     place = get_object_or_404(Place, id=id)
-#     # Fetch and sort reviews by rating in descending order
-#     reviews = Review.objects.filter(place=place).order_by('-rating')
-#     return render(request, 'guide/place_detail.html', {'place': place, 'reviews': reviews})
-
-from django.shortcuts import render, get_object_or_404
-from .models import Place, Review, UserProfile  # Make sure to import UserProfile
 
 def place_detail(request, id):
     place = get_object_or_404(Place, id=id)
@@ -118,20 +105,14 @@ def all_feedback_view(request):
 def search_view(request):
     query = request.GET.get('q', '')
     if query:
-        # Find places with partial match
         places = Place.objects.filter(name__icontains=query)
-        
-        # Prepare the suggestions list for the dropdown
         suggestions = [{'id': place.id, 'name': place.name} for place in places]
-        
-        # Check for an exact match (case-insensitive)
         try:
             exact_match = Place.objects.get(name__iexact=query)
             exact_match_data = {'id': exact_match.id, 'name': exact_match.name}
         except Place.DoesNotExist:
             exact_match_data = None
         
-        # Return both suggestions and exact match (if found)
         return JsonResponse({
             'suggestions': suggestions,
             'exact_match': exact_match_data
@@ -147,11 +128,7 @@ def check_login_status(request):
     return JsonResponse({'logged_in': False})
 
 
-
-
-
-
-#@login_required
+@login_required
 def submit_review(request, place_id):
     place = get_object_or_404(Place, id=place_id)
     
@@ -165,7 +142,7 @@ def submit_review(request, place_id):
                 review.name = request.user.username
                 review.email = request.user.email
             review.save()
-            return redirect('place_detail', id=place_id)  # Use URL name and parameter
+            return redirect('place_detail', id=place_id)  
     else:
         initial_data = {}
         if request.user.is_authenticated:
@@ -180,7 +157,7 @@ def submit_review(request, place_id):
 
 def load_more_reviews(request, place_id):
     place = get_object_or_404(Place, id=place_id)
-    reviews = place.review_set.all().order_by('ratings')[3:]  # Skip the first 3 reviews for initial display
+    reviews = place.review_set.all().order_by('ratings')[3:]  
 
     reviews_data = []
     for review in reviews:
@@ -191,7 +168,7 @@ def load_more_reviews(request, place_id):
             'comments': review.comments,
         })
 
-    has_more = place.review_set.count() > len(reviews_data) + 3  # Check if more reviews exist
+    has_more = place.review_set.count() > len(reviews_data) + 3 
 
     return JsonResponse({
         'reviews': reviews_data,
@@ -199,26 +176,22 @@ def load_more_reviews(request, place_id):
     })
 
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login
-from django.contrib import messages
-from .forms import CustomUserCreationForm
 
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST, request.FILES)  # Include files for profile picture
+        form = CustomUserCreationForm(request.POST, request.FILES)  
         if form.is_valid():
-            user = form.save()  # Save the user and user profile
+            user = form.save() 
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
             
-            # Authenticate the user after registration
+           
             user = authenticate(username=username, password=password)
             
             if user is not None:
-                auth_login(request, user)  # Automatically log the user in
+                auth_login(request, user)  
                 messages.success(request, f'Account created successfully! Welcome, {username}')
-                return redirect('home')  # Redirect to home or any other page after login
+                return redirect('home')  
         else:
             messages.error(request, "There was an error with your registration.")
     else:
@@ -227,8 +200,7 @@ def register(request):
     return render(request, 'guide/register.html', {'form': form})
 
 
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+
 
 @login_required
 def profile_view(request):
@@ -240,24 +212,12 @@ def profile_view(request):
 
     return render(request, 'guide/profile.html', {'profile_picture': profile_picture})
 
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-from django.urls import reverse
-from django.views import View
+
 
 class CustomLogoutView(View):
     def post(self, request):
         logout(request)
-        return redirect(reverse('home'))  # Change 'home' to your actual home URL name
-
-
-# from django.shortcuts import render
-
-# def home(request):
-#     profile_picture_url = None
-#     if request.user.is_authenticated:
-#         profile_picture_url = request.user.userprofile.profile_picture.url if request.user.userprofile.profile_picture else None
-#     return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
+        return redirect(reverse('home')) 
 
 
 
