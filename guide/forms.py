@@ -1,47 +1,51 @@
 from django import forms
-from .models import Feedback, Review, UserProfile
+from .models import Review, UserProfile
 from django.contrib.auth.models import User
-
-# Form for submitting feedback
-class FeedbackForm(forms.ModelForm):
-    class Meta:
-        model = Feedback  
-        fields = ['name', 'email', 'comments']  # Fields to include in the form
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Form for submitting reviews
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review  # Specify the model to create the form for
-        fields = ['rating', 'comments', 'name', 'email']  
+        fields = ['rating', 'comments', 'name', 'email']  # Fields to include in the form
         widgets = {
-            'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),  # Rating input as a number with a range
-            'comments': forms.Textarea(attrs={'rows': 4}), 
+            'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),  # Rating input as a number with a range (1-5)
+            'comments': forms.Textarea(attrs={'rows': 4}),  # Text area for comments with 4 rows
         }
 
-# Custom form for user registration
-class CustomUserCreationForm(forms.ModelForm):
-    password1 = forms.CharField(widget=forms.PasswordInput())  
-    password2 = forms.CharField(widget=forms.PasswordInput())  
-    profile_picture = forms.ImageField(required=False)  # Optional profile picture field
+# Form for user signup, including profile picture upload
+class SignupForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)  # Password field, with masked input
+    confirm_password = forms.CharField(widget=forms.PasswordInput)  # Confirmation password field
+    profile_picture = forms.ImageField(required=True)  # Profile picture field, required for the form
 
     class Meta:
-        model = User 
-        fields = ['username', 'email', 'password1', 'password2', 'profile_picture']  # Fields to include in the form
+        model = User
+        fields = ['username', 'email', 'password', 'confirm_password']  # Include confirm_password but exclude profile_picture as it's not part of User model
 
-    # Validate that the two password fields match
-    def clean_password2(self):
-        password1 = self.cleaned_data.get('password1')  
-        password2 = self.cleaned_data.get('password2')  
-        if password1 and password2 and password1 != password2:  # Check if they are different
-            raise forms.ValidationError("Passwords don't match")  # Raise a validation error if they do not match
-        return password2  # Return the valid password
+    def clean(self):
+        cleaned_data = super().clean()  # Fetch cleaned data from the form
+        password = cleaned_data.get("password")
+        confirm_password = cleaned_data.get("confirm_password")
 
-    # Override the save method to handle user creation
-    def save(self, commit=True):
-        user = super().save(commit=False)  # Create a user object without saving to the database
-        user.set_password(self.cleaned_data["password1"])  # Set the user's password
-        if commit:  # If commit is True, save the user to the database
-            user.save()  # Save the user
-            # Create a corresponding UserProfile instance
-            UserProfile.objects.create(user=user, profile_picture=self.cleaned_data.get('profile_picture'))
-        return user  # Return the user instance
+        # Check if passwords match
+        if password and confirm_password and password != confirm_password:
+            raise forms.ValidationError("Passwords do not match.")
+
+        return cleaned_data  # Always return cleaned_data at the end of the clean method
+
+
+# Signal to create a user profile when a new user is created
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:  # Only create a profile if the user is newly created
+        UserProfile.objects.create(user=instance)
+
+# Signal to save user profile when the user object is saved
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.userprofile.save()  # Ensure the related UserProfile instance is saved whenever the User instance is saved
+
+
+

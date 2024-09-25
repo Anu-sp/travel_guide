@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'guide'
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # Default backend
+)
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,7 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -141,6 +146,21 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+# settings.py
+
+# Make sure this is set up correctly
+LOGIN_URL = 'login'  # Your login URL
+LOGOUT_URL = 'logout'  # Your logout URL
 
 
 
+# Add this line
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'annapoorna.s.p.k@gmail.com'
+EMAIL_HOST_PASSWORD = 'vpyz plyc hncj nbvc'
+DEFAULT_FROM_EMAIL = 'annapoorna.s.p.k@gmail.com'

@@ -21,23 +21,22 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
 
-
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name= 'home'),
+    path('', views.home, name='home'),
     path('district/', views.district_page, name='district_page'),
     path('districts/<int:id>/', views.district_detail, name='district_detail'),
     path('place/<int:id>/', views.place_detail, name='place_detail'),
-    path('feedback/<int:place_id>/', views.feedback_view, name='feedback'),
-    path('feedbacks/', views.all_feedback_view, name='all_feedbacks'),
     path('search/', views.search_view, name='search'),
+    path('signup/', views.signup_view, name='signup'),
+    path('login/', views.login_view, name='login'),
+    path('profile/', views.profile_view, name='profile'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('place/<int:place_id>/review/', views.submit_review, name='submit_review'),
-    path('place/<int:place_id>/review/load_more/', views.load_more_reviews, name='load_more_reviews'),
-    path('register/', views.register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='guide/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'), 
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='guide/password_reset.html'), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='guide/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='guide/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='guide/password_reset_complete.html'), name='password_reset_complete'),
 ]
 
 if settings.DEBUG:
