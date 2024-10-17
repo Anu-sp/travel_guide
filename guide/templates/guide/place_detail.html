@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>{{ place.name }}</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 
     <style>
         /* General Styles */
@@ -144,8 +146,8 @@
         }
         .review-item {
             flex: 0 0 auto;
-            background-color: #fff;
-            border: 1px solid #ddd;
+            background-color: #d4caca;
+            border: 1px solid #060606;
             border-radius: 8px;
             padding: 10px;
             width: 250px; /* Adjust width as needed */
@@ -154,7 +156,7 @@
         }
 
         .review-item:hover {
-            background-color: #f9f9f9; /* Light background on hover */
+            background-color: #edddea; /* Light background on hover */
             transform: translateY(-5px); /* Slight lift effect */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
         }
@@ -198,8 +200,9 @@
 
         /* Modal content box styling */
         .modal-content {
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             padding: 30px;
+           
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
@@ -264,23 +267,120 @@
             }
         }
         .profile-picture {
-            width: 25px;
-            height: 25px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             margin-left: 1280px;
         }
-    </style>
+        /* General Modal Styles */
+.profile-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    right: 20px; /* Align to the right */
+    top: 70px; /* Align to the top */
+    width: 500px; /* Set a fixed width */
+    height: auto; /* Height adjusts automatically */
+    max-height: 90%; /* Max height for responsiveness */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+/* Modal Content Styles */
+.profile-modal-content {
+    border: #000;
+    background-color: #ffffff; /* White background */
+   
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Modal Header Styles */
+.profile-modal-header {
+    height: 40px;
+    font-size: 200%;
+    font-weight: bold;
+    background-color: #9cbee2; /* Primary color */
+    color: white; /* White text */
+    padding: 15px; /* Padding */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Modal Body Styles */
+.profile-modal-body {
+    padding: 20px; /* Padding for body */
+    max-height: 70vh; /* Maximum height of body */
+}
+
+/* Profile Picture Styles */
+.profile-modal-body img {
+    border: 4px solid #007bff; /* Blue border */
+    border-radius: 50%;
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 80px; /* Set a fixed width for profile picture */
+    height: 80px; /* Set a fixed height for profile picture */
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 5px; /* Rounded buttons */
+    padding: 10px 15px; /* Button padding */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+    display: inline-block; /* Inline block for spacing */
+}
+
+.btn-secondary {
+    background-color: #7a66d2; /* Secondary button color */
+    color: white; /* White text */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker on hover */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Danger button color */
+    color: white; /* White text */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker on hover */
+}
+
+/* Close Button Styles */
+.profile-close {
+    font-size: 20px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile-modal {
+        width: 90%; /* Full width on smaller screens */
+        right: 5%; /* Adjust right margin for smaller screens */
+    }
+}
+
+
+   </style>
 </head>
 <body>
     <div class="header">
         <nav>
             <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
-            <a href="{% url 'district_detail' place.district.id %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
+            <a href="{% url 'district_detail' place.district.slug %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
             {% if profile_picture_url %}
-            <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture">
-            {% endif %}
+            <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture" id="profileImage" style="cursor:pointer;">
+            {% else %}
+            <a class="nav-link" href="{% url 'login' %}?next={% url 'place_detail' place.slug %}" style="margin-left: 1255px;">Login</a>
+        {% endif %}
+        
         </nav>
     </div>
+
+    
     <h1>{{ place.name }}</h1>
     <div class="container">
         {% if place.placeimage_set.all %}
@@ -324,8 +424,9 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2>Write a Review</h2>
-                    <form id="reviewForm" method="POST" action="{% url 'submit_review' place.id %}">
+                    <form id="reviewForm" method="POST" action="{% url 'submit_review' place.slug %}">
                         {% csrf_token %}
+                        <input type="hidden" id="reviewId" name="reviewId">
                         <div>
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" {% if user.is_authenticated %} value="{{ user.username }}" {% endif %} required>
@@ -349,26 +450,90 @@
             <!-- Login Prompt -->
             <div id="loginPrompt" style="display: none;">
                 <p>You need to be logged in to submit a review.</p>
-                <a href="{% url 'home' %}">Log in here</a>
+                <a href="{% url 'login' %}?next={% url 'place_detail' place.slug %}">Log in here</a>
+
             </div>
         </div>
     </div>
 
-    
-    <!-- Reviews Section -->
+     
+    <div id="profileModal" class="profile-modal">
+        <div class="profile-modal-dialog">
+            <div class="profile-modal-content">
+                <div class="profile-modal-header">
+                    <h5 class="profile-modal-title">{{ user.username }}'s Profile</h5>
+                    <span class="profile-close" style="cursor:pointer;">&times;</span>
+                </div>
+                <div class="profile-modal-body">
+                    <div class="row">
+                        <!-- Profile Picture Section -->
+                        <div class="col-md-4">
+                            {% if user.userprofile.profile_picture %}
+                                <img src="{{ user.userprofile.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" class="img-fluid rounded-circle" width="60" height="60">
+                            {% else %}
+                                <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="img-fluid rounded-circle">
+                            {% endif %}
+                        </div>
+                        <!-- User Information Section -->
+                        <div class="col-md-8">
+                            <h4>User Information</h4>
+                            <p><strong>Username:</strong> {{ user.username }}</p>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Joined on:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+                            <p><strong>Gender:</strong> {{ user.userprofile.get_gender_display }}</p>
+                            <p><strong>Date of Birth:</strong> {{ user.userprofile.date_of_birth }}</p>
+                            <p><strong>Phone Number:</strong> {{ user.userprofile.phone_number }}</p>
+                        </div>
+                    </div>
+             
+                    <!-- Edit Profile and Logout -->
+                    <a href="{% url 'edit_profile' %}" class="btn btn-secondary mt-3">Edit Profile</a>
+                    <form method="POST" action="{% url 'logout' %}" class="mt-4">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="reviews-container">
         <h2 class="reviews-title">Reviews</h2>
         <div class="reviews">
             {% for review in reviews %}
             <div class="review-item">
-                <strong>{{ review.name }}</strong> ({{ review.created_at|date:"F j, Y" }}) - Rating: {{ review.rating }}/5
+                <strong>{{ review.name }}</strong> ({{ review.created_at|date:"F j, Y" }})<br> Rating: {{ review.rating }}/5
                 <p>{{ review.comments }}</p>
+    
+                <!-- Delete Button (Visible only to the review author) -->
+                {% if user.is_authenticated and review.user.id == user.id %}
+                <button 
+                    class="edit-review-btn" 
+                    data-id="{{ review.id }}" 
+                    data-comments="{{ review.comments|escapejs }}" 
+                    data-rating="{{ review.rating }}" 
+                    onclick="openEditModal(this)">
+                    Edit Review
+                </button>
+
+
+                <form action="{% url 'delete_review' review.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this review?');">
+                    {% csrf_token %}
+                    <button  type="submit">Delete Review</button>
+                </form>
+                {% endif %}
+               
             </div>
             {% empty %}
             <p>No reviews yet. Be the first to write one!</p>
             {% endfor %}
         </div>
     </div>
+    
+
+
+
 
 
     <!-- Scripts -->
@@ -387,7 +552,7 @@
             },
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
             var seeMoreButton = document.getElementById('seeMoreButton');
             var moreReviews = document.getElementById('moreReviews');
             
@@ -420,6 +585,9 @@
                     modal.style.display = "none";
                 }
             }
+
+
+       
         });
 
     document.getElementById('writeReviewButton').addEventListener('click', function() {
@@ -440,27 +608,73 @@
         document.getElementById('reviewModal').style.display = 'none';
     });
 
-    // Handle form submission
-    searchForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        const query = searchInput.value.trim();
-        if (query) {
-            fetch(`/search/?q=${encodeURIComponent(query)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.exact_match) {
-                        // If an exact match is found, redirect to the place detail page
-                        window.location.href = `/place/${data.exact_match.id}/`;
-                    } else {
-                        // If no exact match, perform a general search redirect
-                        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error performing search:', error);
-                });
+   
+    document.addEventListener("DOMContentLoaded", function () {
+    var profileModal = document.getElementById("profileModal");
+    var profileImage = document.getElementById("profileImage"); // Ensure this ID is correct
+    var profileClose = document.getElementsByClassName("profile-close")[0];
+
+    // Show the profile modal when the profile image is clicked
+    if (profileImage) {
+        profileImage.onclick = function () {
+            profileModal.style.display = "block";
+            profileModal.style.opacity = "1"; // Show with fade-in
         }
+    }
+
+    // Close the modal when the close button is clicked
+    if (profileClose) {
+        profileClose.onclick = function () {
+            profileModal.style.opacity = "0"; // Start fade-out
+            setTimeout(() => {
+                profileModal.style.display = "none"; // Hide after fade-out
+            }, 300);
+        }
+    }
+
+    // Close the modal when clicking outside of the modal content
+    window.onclick = function (event) {
+        if (event.target == profileModal) {
+            profileModal.style.opacity = "0"; // Start fade-out
+            setTimeout(() => {
+                profileModal.style.display = "none"; // Hide after fade-out
+            }, 300);
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Attach click event to each Edit Review button
+    const editButtons = document.querySelectorAll('.edit-review-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', () => openEditModal(button));
     });
+
+    // Event listener for closing the modal
+    document.querySelector('.close').addEventListener('click', closeModal);
+});
+
+function openEditModal(button) {
+    // Retrieve data from the button's attributes
+    const reviewId = button.getAttribute('data-id');
+    const comments = button.getAttribute('data-comments');
+    const rating = button.getAttribute('data-rating');
+
+    // Populate the modal with the retrieved data
+    document.getElementById('reviewId').value = reviewId; // Hidden input for the review ID
+    document.getElementById('comments').value = comments; // Comments field
+    document.getElementById('rating').value = rating; // Rating field
+
+    // Show the modal
+    document.getElementById('reviewModal').style.display = 'block';
+}
+
+// Close modal function
+function closeModal() {
+    document.getElementById('reviewModal').style.display = 'none';
+}
+
+
 
 </script>
 </body>

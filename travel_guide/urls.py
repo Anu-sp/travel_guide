@@ -25,19 +25,23 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('district/', views.district_page, name='district_page'),
-    path('districts/<int:id>/', views.district_detail, name='district_detail'),
-    path('place/<int:id>/', views.place_detail, name='place_detail'),
+    path('districts/<slug:slug>/', views.district_detail, name='district_detail'),
+    path('place/<slug:slug>/', views.place_detail, name='place_detail'),
     path('search/', views.search_view, name='search'),
     path('signup/', views.signup_view, name='signup'),
     path('login/', views.login_view, name='login'),
     path('profile/', views.profile_view, name='profile'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('place/<int:place_id>/review/', views.submit_review, name='submit_review'),
+    path('edit-profile/', views.edit_profile, name='edit_profile'),
+    path('place/<slug:place_slug>/review/', views.submit_review, name='submit_review'),
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='guide/password_reset.html'), name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='guide/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='guide/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='guide/password_reset_complete.html'), name='password_reset_complete'),
+    path('reviews/delete/<int:review_id>/', views.delete_review, name='delete_review'),
+    
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

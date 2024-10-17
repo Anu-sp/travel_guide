@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ district.name }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
     <style>
         body {
             background-image: url("{% if district.image %}{{ district.image.url }}{% else %}/path/to/default/image.jpg{% endif %}");
@@ -36,6 +38,8 @@
             display: flex;
             gap: 15px;
             align-items: center;
+            width: 100%;
+            justify-content: space-between; /* Space between items */
         }
         .header a {
             color: black;
@@ -49,7 +53,19 @@
             background-color: #576e88;
             transform: scale(1.1);
         }
-        
+
+        .modal-dialog {
+            position: absolute; /* Position it absolutely */
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the left */
+           /* Set a max width if necessary */
+            width: 4000px; /* Allow it to size based on content */
+        }
+        .modal-content {
+            background-color: #ffffff; /* Ensure the background is white */
+            color: #000000; /* Set the text color to black */
+        }
+
         .main-content {
             flex: 1;
             display: flex;
@@ -62,6 +78,7 @@
             box-sizing: border-box;
             opacity: 0;
             transition: opacity 1s ease-in;
+           
         }
         .main-content.visible {
             opacity: 1;
@@ -108,68 +125,95 @@
             box-sizing: border-box;
             font-size: 0.9em;
         }
-        
+
         .profile-picture {
             width: 25px;
             height: 25px;
             border-radius: 50%;
             object-fit: cover;
-            
-            margin-left: 1295px;
+            cursor: pointer; /* Make it clear it's clickable */
         }
     </style>
 </head>
 <body>
     <div class="header">
         <nav>
-            <a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
-            <a href="{% url 'district_page' %}"><i class="fas fa-arrow-circle-left"></i>Back</a>
-           {% if profile_picture_url %}
-           <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture">
-          {% endif %}
+            <a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+            <a href="{% url 'district_page'  %}?page={{ request.GET.page|default:1 }}" style="margin-right: 1220px;"><i class="fas fa-arrow-circle-left"></i> Back</a>
+            {% if profile_picture_url %}
+                <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture" data-toggle="modal" data-target="#profileModal"> <!-- Trigger modal -->
+            {% else %}
+                <a class="nav-link" href="{% url 'login' %}?next={% url 'district_detail' district.slug %}" style="margin-left: 10px;">Login</a>
+            {% endif %}
         </nav>
     </div>
-    
+
     <div class="main-content visible">
         <h1>Places to visit in {{ district.name }}</h1>
         <ul>
             {% for place in places %}
             <li class="card">
-                <a href="{% url 'place_detail' place.id %}">{{ place.name }}</a>
+                <a href="{% url 'place_detail' place.slug %}">{{ place.name }}</a>
             </li>
             {% empty %}
             <li>No places available for this district.</li>
             {% endfor %}
         </ul>
     </div>
-   
 
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">{{ user.username }}'s Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {% if user.userprofile.profile_picture %}
+                                <img src="{{ user.userprofile.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" class="img-fluid rounded-circle">
+                            {% else %}
+                                <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="img-fluid rounded-circle">
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <h4>User Information</h4>
+                            <p><strong>Name:</strong> {{ user.username }}</p>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Joined on:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+                            <p><strong>Gender:</strong> {{ user.userprofile.gender }}</p>
+                            <p><strong>Date of Birth:</strong> {{ user.userprofile.date_of_birth }}</p>
+                            <p><strong>Phone Number:</strong> {{ user.userprofile.phone_number }}</p>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'edit_profile' %}" class="btn btn-secondary">Edit Profile</a>
+                    
+                    <!-- Logout Form -->
+                    <form method="POST" action="{% url 'logout' %}" class="mt-4">  
+                        {% csrf_token %}
+                        <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JS -->
+    
     <script>
-        
-
-    // Handle form submission
-    searchForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        const query = searchInput.value.trim();
-        if (query) {
-            fetch(`/search/?q=${encodeURIComponent(query)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.exact_match) {
-                        // If an exact match is found, redirect to the place detail page
-                        window.location.href = `/place/${data.exact_match.id}/`;
-                    } else {
-                        // If no exact match, perform a general search redirect
-                        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error performing search:', error);
-                });
-        }
-    });
-
-
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainContent = document.querySelector('.main-content');
+            mainContent.classList.add('visible');
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,4049 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "district"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "place"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "placeimage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "feedback"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "review"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "userprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "guide",
+    "model": "profile"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0xxgnmdblrk02rz442trdjz8a8yortop",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOhQIu3XsGMjCDVA0kpV0Z765NutDtf-_9lwi4rSVsnZcwkzgLLU6_W8T04LoDumO9NZlaXZc5yl2RB-3y2oifl8P9OyjYy7dWCBayBlbko3YZjB-Nt5SzNuxcApwMAYDHTOCHAZU2lEa2eYpjJBTvD9fsOAM:1srdEM:HyYSd1WU4zsigspJnrrTD9TbgicDzYaS4Nt2rXGW8oc",
+    "expire_date": "2024-10-04T12:59:26.652Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1qn4b8ycemabrrv0wt4thj9bl9q6hrhk",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe9CHaEF802Z3mdACwvBSYQlY1dR7h5bcpG0M_PemwXc1hq2npcwEbsy4djlF0ZMz9wOQw9s95mnua3LFPmR8NN2Ps6UX7ez_Tuo2Ou-9qgLGHQ-y0HlCIUQyRNqmQQCJOetlUkPquhECNoIawB2qF0uyjj2-QIaeTfh:1sxi11:Ygrnb4uCC5H2hDGZFtZEyJ3huY-O8K9FJQMhqI288yw",
+    "expire_date": "2024-10-21T07:18:47.359Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "47fioler21vkp6qjakyvygfcrktm5jeu",
+  "fields": {
+    "session_data": "e30:1srELa:bKn7woQZONAzzwQ0gtrFvEJOonb9w8-315DighRLxmA",
+    "expire_date": "2024-10-03T10:25:14.506Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4m38hjb5p28quf20gkzzc6kj3f3nq1ty",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-4B8lfc5g7XptHEC2FCcV4u4QKQW0b2bei0XY1hq3kZc4E7sw6dnpd0RIj9x2Qndot85Tb-syI98VftDBp075eT3cv4MKo37rswBMBFp5W1ROaI3GHAidlNaEIJwIJDSl4krJHooiAUIrNMYZlIjs_QEjizi5:1svbgK:N921-ED6xscta3Xq5FPZQR640NkNOE0yFy6UlRXjo7c",
+    "expire_date": "2024-10-15T12:08:44.459Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5wj703ij5l5hxi0fsws3mqxjgl8h85bn",
+  "fields": {
+    "session_data": "e30:1srEKg:vIVbuV3ytE1JNUHR5w0XndR7OQ1sWUuVGsiZkUA5kXU",
+    "expire_date": "2024-10-03T10:24:18.954Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5xqxvy10ntznr95rqtnckndaq50m4y92",
+  "fields": {
+    "session_data": "e30:1srEQk:hiXroYvlds6LE2LccAh6DWlTSicUe9vtfQsiMbvZMEk",
+    "expire_date": "2024-10-03T10:30:34.258Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bne1gfpoiqqdybownjbk16bmis63n7r8",
+  "fields": {
+    "session_data": "e30:1svERn:6bSniTAX_mjj6KQn1CWouMf1lOR7PD7wqQ7g6sy30WY",
+    "expire_date": "2024-10-14T11:20:11.811Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ddq52dbp735fmors7zn79xgs5o1d0ka6",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGllOvPGHkj5nsHa9axJAjhQnFeLuKFIKaN_MvLdKuG9T2pusaWZ1VU5dfjfC_JR6AH5gvS86L3VbZ9KHok_a9LiwvG6n-3cwYZuOmiS7DA6MNzT4buiHEIP0wbEhKCwBS_aF0ZCJ4BjFFBsBuhLJWgzq8wXwbTg-:1sraGa:OQh7Hy_0gCArGWsCYnoDUD2OnS8pyd81nXMPQxBEeDk",
+    "expire_date": "2024-10-04T09:49:32.842Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jdb0hvryjo6s1gnoiyr6bik6pp9lp25p",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAURP-FtSFweV6X7v0GQstFqgaS0q6M_64kXehy5pyZFwtx30rYO61hSezMNDv9dlOcH1QHSPdYb43PrW7rMvGh8IN2fm2JnpfD_TsosZfvGg0q7yxKI4XIzkMyQoHUYC0hOCUpUzQm64yoNDqbIIED8IQjGfb-AJEXNcg:1sxmqu:cR-EZ0ugih4-y2fffrTrKeH73njN0A0ErDxEZ0ra74M",
+    "expire_date": "2024-10-21T12:28:40.595Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jxfj0xtdwhpmvp92zcl453ceoct48lqh",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGllOvPGHkj5nsHa9axJAjhQnFeLuKFIKaN_MvLdKuG9T2pusaWZ1VU5dfjfC_JR6AH5gvS86L3VbZ9KHok_a9LiwvG6n-3cwYZuOmiS7DA6MNzT4buiHEIP0wbEhKCwBS_aF0ZCJ4BjFFBsBuhLJWgzq8wXwbTg-:1sraGb:CunfEqQSyvRhidZhBlDxI3BF1liAAE-41OvOrvIrN_Y",
+    "expire_date": "2024-10-04T09:49:33.475Z"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 1,
+  "fields": {
+    "name": "Shivamogga",
+    "image": "district_images/images/smg_5st9lCr.jpg",
+    "slug": "shivamogga"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 2,
+  "fields": {
+    "name": "Bangalore",
+    "image": "district_images/images/bng_e1Pe8al.jpg",
+    "slug": "bangalore"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 3,
+  "fields": {
+    "name": "Mysuru",
+    "image": "district_images/images/Mysore_FJPp1py.jpg",
+    "slug": "mysuru"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 4,
+  "fields": {
+    "name": "Chikkamagaluru",
+    "image": "district_images/images/Chikmagalur_rsKgiEO.jpg",
+    "slug": "chikkamagaluru"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 5,
+  "fields": {
+    "name": "Udupi",
+    "image": "district_images/images/udupi.jpeg",
+    "slug": "udupi"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 6,
+  "fields": {
+    "name": "Davangere",
+    "image": "district_images/images/dvg.jpg",
+    "slug": "davangere"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 7,
+  "fields": {
+    "name": "Mandya",
+    "image": "district_images/images/mandya.jpg",
+    "slug": "mandya"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 8,
+  "fields": {
+    "name": "Chitradurga",
+    "image": "district_images/images/Chitradurga.jpg",
+    "slug": "chitradurga"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 9,
+  "fields": {
+    "name": "Hassan",
+    "image": "district_images/images/hasan.jpg",
+    "slug": "hassan"
+  }
+},
+{
+  "model": "guide.district",
+  "pk": 10,
+  "fields": {
+    "name": "Dharwad",
+    "image": "district_images/images/darwad.jpg",
+    "slug": "dharwad"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 1,
+  "fields": {
+    "district": 1,
+    "name": "Kodachadri",
+    "description": "The top of Kodachadri in the Western Ghats is rich in flora and wildlife, and its hypnotic beauty of lush hills and little valleys casts a spell over your eyes. People find it interesting for a variety of reasons, including the trekking and hiking opportunities as well as the tranquillity and breathtaking views of the environs. One of the best Shivamogga tourist places that have unique animal and bird species, including the Malabar Langur, Indian Rock Python, and Pied Hornbill, is Kodachadri, which is situated behind the Mookambika Devi temple.",
+    "distance": "115 from the town",
+    "best_time_to_visit": "Avoid monsoons due to slippery floors",
+    "things_to_do": "Sightseeing, Trekking, Hiking, Photography",
+    "entry_fee": "",
+    "timings": "",
+    "how_to_reach": "Although you can find any public transport, hailing a bus to reach there would be the best option.",
+    "slug": "kodachadri"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 2,
+  "fields": {
+    "district": 1,
+    "name": "Jog Falls",
+    "description": "Hardly anybody can say they don't enjoy waterfalls. In reality, you need to be close to a flowing waterfall and surrounded by lush vegetation to enjoy nature in its purest form. The Jog Falls in Shivamogga  s Sagar Taluk should be visited at least once if this is how you like to experience nature. The fact that Jog Falls is the second-highest waterfall in India and is spectacular adds to its uniqueness. It is a sight to witness as it plummets from a height of 253 feet. It comes from the Sharavathi River at its source.Raja Falls, Rani Falls, Rocket Falls, and Roarer Falls make up the four distinct falls that make up the Jog Falls. There are two locations, each on a different side of the captivating Jog Falls, from where you may get a good view. To get there, you must descend 1400 stairs. The lush vegetation that surrounds the Jog Falls provides the ideal backdrop and enhances its beauty.",
+    "distance": "87.8 km",
+    "best_time_to_visit": "July-December",
+    "things_to_do": "Trekking, swimming, picnicking, kayaking",
+    "entry_fee": "",
+    "timings": "7 AM to 7 PM",
+    "how_to_reach": "The cheapest way to get from Shivamogga to Jog Falls is to train, which costs Rs 400   Rs 1,100 and takes 2h 26m. The quickest way to get from Shivamogga to Jog Falls is by taxi, which costs Rs 2,900   Rs 3,500 and takes 1h 57m.",
+    "slug": "jog-falls"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 3,
+  "fields": {
+    "district": 1,
+    "name": "Sakrebayalu Elephant Camp",
+    "description": "One may observe elephant herds being taught at Sakrebayalu Elephant Camp. Nearly 14 kilometres away from the town of Shivamogga, it is a rather well-liked destination for travellers. Elephants at this ecotourism facility are handled by knowledgeable mahouts. As they wash in the backwaters, engage with their young, and go about their daily lives, the wild elephants may be observed in their natural environment. It is a lovely refuge and is situated on the River Tunga. Avoid utilising flash photography at the sanctuary to prevent upsetting the elephants.",
+    "distance": "13.8 km",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "Indians: INR 30 , Foreign Nationals: INR 100",
+    "timings": "8.30 am to 6.00 pm",
+    "how_to_reach": "Shivamogga is well connected with other major cities. Although you can find any public transport, booking a cab or hailing a bus to reach there would be the best option.",
+    "slug": "sakrebayalu-elephant-camp"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 4,
+  "fields": {
+    "district": 1,
+    "name": "Gudavi Bird Sanctuary",
+    "description": "The Gudavi Bird Sanctuary is one of the most popular tourist destinations in Shivamogga and a small piece of ornithologists  paradise. This sanctuary, which rests peacefully next to Gudavi Lake, is home to more than 48 different bird species. Plan your trip between June and December to see a variety of species, including the white-headed crane, black-headed crane, bittern, Indian shag, and white ibis. Try visiting one of Shivamogga, Karnataka s most tranquil locations! This is one of Karnataka s most popular bird sanctuaries.",
+    "distance": "41 km from Sirsi",
+    "best_time_to_visit": "June to December",
+    "things_to_do": "Sightseeing, photography, birdwatching",
+    "entry_fee": "Rs. 50 per person",
+    "timings": "9 AM   6 PM",
+    "how_to_reach": "Gudavi is around 17 km from the town of Soraba and 60 km from Sagara in Shivamogga. Visitors can either reach Shivamogga or Sagara by bus and then head to Gudavi. Sagara Jambagaru Railway Station or Shivamogga  Railway Station is the nearest railway station to Gudavi.",
+    "slug": "gudavi-bird-sanctuary"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 5,
+  "fields": {
+    "district": 1,
+    "name": "Nagara Fort",
+    "description": "Do you enjoy visiting historical forts and ruin sites? Shivamogga won t let you down, then, since it is the location of Nagara Fort, which is perched on a tiny hill and offers stunning views of a lake. The fort still has a built and functional water system. You may locate the Akka Thangi Kola tank and the Darbar Hall while touring the fort. On your trip, you must go to Nagara Fort if you want to experience the best attractions in Shivamogga.",
+    "distance": "84 km",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "Free",
+    "timings": "9 AM   5 PM",
+    "how_to_reach": "Although you can find any public transport, booking a cab to reach there would be the best option.",
+    "slug": "nagara-fort"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 6,
+  "fields": {
+    "district": 3,
+    "name": "Mysore palace",
+    "description": "The Mysore Palace or the Amba Vilas Palace used to be a royal residence for the Wadiyar dynasty. Located in the heart of Mysore city, the palace sits close to Chamundi Hills in the east of the city. The palace was built in the 19th century, and the construction was fully completed in 1912. The palace is a true exemplar of Indian architecture and displays the grandeur of the royal lifestyle. The beautifully painted and carved palace draws millions of tourists worldwide. The palace has seen a mix of the Hindu, Mughal, Rajput, and Gothic styles which make it unique in itself. You can take a tour of the palace and its premises by purchasing a ticket. On Sundays and public holidays, the Mysore palace is lit up with yellow lights, making the palace glitter from the outside. This sight must not be missed when finding places to visit in Mysore.",
+    "distance": "",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "Indian nationals: INR 70 for adults, INR 30 for kids above 7 years and below 12 years and free for kids below 7 years.  Foreign tourists: INR 200 per person.",
+    "timings": "Everyday from 10 am to 5 pm.",
+    "how_to_reach": "",
+    "slug": "mysore-palace"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 7,
+  "fields": {
+    "district": 3,
+    "name": "Sri Chamarajendra Zoological Gardens",
+    "description": "Mysore zoo or Sri Chamarajendra Zoological Gardens are close to the Mysore palace premises. This zoo is spread over 150 acres and houses over 160 species of animals and birds. Opened in the 19th century, the zoo is arguably one of the oldest zoos in the country and was started by Maharaja Sri Chamaraja Wodeyar. The zoo has now become the home of about 1300 animals. You will find a variety of animals here like tigers, lions, giraffes, rhinoceros, baboons, monkeys, tortoises, reptiles, zebras, etc. Additionally, the birds found at the Mysore zoo include flamingos, macaws, peacocks, etc. This old zoo is a must-visit among the places to visit in Mysore. A small tour of the zoo will be ideal for children and even wildlife enthusiasts.",
+    "distance": "",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "",
+    "timings": "",
+    "how_to_reach": "",
+    "slug": "sri-chamarajendra-zoological-gardens"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 8,
+  "fields": {
+    "district": 3,
+    "name": "Karanji Lake",
+    "description": "Karanji Lake, or the fountain lake, is yet another place to visit in Mysore. This popular tourist place is actually a prominent picnic spot for both locals and travellers. This beautiful and tranquil lake is an amazing place to explore especially on a warm summer evening. The various birds which find their homes here can be photographed by nature photographers. The lake itself measures 20m in length and 50 m in breadth. A butterfly Park is located nearby and can be visited by tourists as well. You can have a small picnic here and even bring your own food to the premises. Other activities here include boating on the lake, which comes at a minimal price.",
+    "distance": "",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "Adults: INR 50  , Children: INR 25",
+    "timings": "Open everyday from 08.30 am to 05.30 pm, except on",
+    "how_to_reach": "",
+    "slug": "karanji-lake"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 9,
+  "fields": {
+    "district": 3,
+    "name": "Ranganathittu Bird Sanctuary",
+    "description": "A short ride of 18 km away from Mysore lies the Ranganathittu bird sanctuary. Located in the Mandya District, the sanctuary is the largest bird sanctuary in the state. It covers over 40 acres and includes six islets on the banks of the Kaveri river. Travellers have to take a ride to Srirangapatna to visit this bird sanctuary. The sanctuary houses a huge variety of bird species and even some reptiles. Wildlife photographers will have a blast visiting this place. You can also enjoy some quiet time in the lap of nature and sight some rare bird species here. Ranger-guided boat tours will help you explore the area and have a great time among the chirping birds. You can reach the park via NH-150A highway by hiring local cabs and buses.",
+    "distance": "",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "Indian nationals:  Adult: Rs.75/-, Child: Rs.25/- Foreign tourists:  Adult: Rs.500/-, Child: Rs.250/-",
+    "timings": "Open on all days from 8:30am 5:30pm.",
+    "how_to_reach": "",
+    "slug": "ranganathittu-bird-sanctuary"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 10,
+  "fields": {
+    "district": 4,
+    "name": "Kudremukh Trek",
+    "description": "Few activities in Chikmagalur are as thrilling for thrill-seekers as climbing Kudremukh, the 3rd highest mountain peak in Karnataka.This difficult track allows you to travel expansive grassy fields and steep hills covered in deep forest, among the most beautiful scenery in the area. This excursion is highly recommended even for people who have no trekking experience.Get prepared to be mesmerised in this Chikmagalur place before beginning your trip as you take in the stunning views of mist-covered mountains and valleys from the peak, which is situated at an altitude of 6207 feet.",
+    "distance": "95km to Kudremukh Base",
+    "best_time_to_visit": "October-May",
+    "things_to_do": "",
+    "entry_fee": "INR 200 per head for Indians; INR 1000 per head for foreigners; Permission for trekking required from Forest officer",
+    "timings": "06:00 AM to 05:00 PM",
+    "how_to_reach": "Board a bus from Chikmagalur Bus Stop to Kudremukh Base Camp or you can book a taxi to reach the base.",
+    "slug": "kudremukh-trek"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 11,
+  "fields": {
+    "district": 4,
+    "name": "Sharadamba temple",
+    "description": "You should go to Sharadamba Temple if you want to make time for devotion throughout your vacation to Chikmagalur. This well-known Hindu temple is devoted to the deity Saraswati and is one of the most peaceful places to visit in Chikmagalur. It is well renowned for its elaborate sculptures, colonnaded hall, and a series of priceless statues.The temple, constructed in the eighth century, intrigues many history buffs with its fine workmanship and intricate artistry. The temple s gorgeous setting along the Tunga river gives a feeling of serenity and calmness you will feel when visiting.",
+    "distance": "86.5 km",
+    "best_time_to_visit": "September   October during Navratri",
+    "things_to_do": "",
+    "entry_fee": "None",
+    "timings": "06:00 AM to 02:00 PM; 05:00 PM to 09:00 PM",
+    "how_to_reach": "Board a bus or taxi to the temple. All public transports are available to reach the location.",
+    "slug": "sharadamba-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 12,
+  "fields": {
+    "district": 4,
+    "name": "Bhadra wildlife sanctuary",
+    "description": "Go directly to Bhadra Animal Sanctuary for an amazing jeep safari if you are unsure of doing anything in Chikmagalur to slake your appetite for wildlife discovery. You will get the chance to discover the astounding variety of plants and animals that this wildlife sanctuary nestled in the Western Ghats boasts during an interactive vehicle safari.Along with the over 250 different bird species, other animals you may expect to see here include the barking deer, sloth bear, elephant, gaur, and tiger.This safari may be exciting and full of discoveries and heart-pounding thrills, from seeing tigers wandering openly in their habitat to photographing elephants and deer.",
+    "distance": "79km",
+    "best_time_to_visit": "October to May",
+    "things_to_do": "Bird watching, Trekking, Island camping, Rock climbing, boating",
+    "entry_fee": "Jeep Safari Fee: INR 400 for adults, INR 200 for kids; INR 1200 for foreigners",
+    "timings": "06:00 AM to 08:30 PM; 04:00 PM to 06:00 PM",
+    "how_to_reach": "All public transports are available to reach the location from Chikmagalur.",
+    "slug": "bhadra-wildlife-sanctuary"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 13,
+  "fields": {
+    "district": 2,
+    "name": "Lalbagh Botanical Garden",
+    "description": "Lalbagh is a renowned botanical garden that houses a wide variety of plant species.",
+    "distance": "4 km from the city center",
+    "best_time_to_visit": "Early mornings, best during the flower shows in January and August",
+    "things_to_do": "Explore the glasshouse, visit the flower shows, and stroll through the garden",
+    "entry_fee": "INR 25 for adults, INR 10 for children",
+    "timings": "6:00 AM   7:00 PM",
+    "how_to_reach": "Easily accessible by bus, metro (Lalbagh Metro Station), or car",
+    "slug": "lalbagh-botanical-garden"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 14,
+  "fields": {
+    "district": 2,
+    "name": "Cubbon Park",
+    "description": "A large green space in the heart of Bangalore, ideal for nature lovers and joggers.",
+    "distance": "2 km from MG Road",
+    "best_time_to_visit": "Morning or evening for a peaceful experience",
+    "things_to_do": "Walking, jogging, picnics, visiting the State Central Library",
+    "entry_fee": "Free",
+    "timings": "6:00 AM   6:00 PM",
+    "how_to_reach": "Accessible by bus, metro (Cubbon Park Metro Station), or bike",
+    "slug": "cubbon-park"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 15,
+  "fields": {
+    "district": 2,
+    "name": "Bangalore Palace",
+    "description": "A majestic palace offering a glimpse into Bangalore s royal past.",
+    "distance": "3 km from the city center",
+    "best_time_to_visit": "Anytime during the year",
+    "things_to_do": "Palace tour, explore the gardens, photography",
+    "entry_fee": "INR 240 for Indians, INR 460 for foreigners",
+    "timings": "10:00 AM   5:00 PM",
+    "how_to_reach": "",
+    "slug": "bangalore-palace"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 16,
+  "fields": {
+    "district": 2,
+    "name": "Vidhana Soudha",
+    "description": "The state legislature building of Karnataka, known for its grand architecture.",
+    "distance": "1 km from Cubbon Park",
+    "best_time_to_visit": "Best seen in the evening when it is lit up",
+    "things_to_do": "Explore nearby parks, photography",
+    "entry_fee": "Free (viewing from outside)",
+    "timings": "Open 24 hours for viewing",
+    "how_to_reach": "Bus, metro (Vidhana Soudha Metro Station), or car",
+    "slug": "vidhana-soudha"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 17,
+  "fields": {
+    "district": 2,
+    "name": "ISKCON Temple",
+    "description": "A huge and popular temple dedicated to Lord Krishna, blending traditional and modern architecture.",
+    "distance": "8 km from the city center",
+    "best_time_to_visit": "Early mornings or evenings",
+    "things_to_do": "Attend the aarti, explore the temple premises",
+    "entry_fee": "Free",
+    "timings": "4:30 AM   9:00 PM",
+    "how_to_reach": "Easily accessible by bus, metro (Mahalakshmi Metro Station), or car",
+    "slug": "iskcon-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 18,
+  "fields": {
+    "district": 3,
+    "name": "Gumbaz-e-Shahi",
+    "description": "Gumbaz-e-Shahi is a Muslim mausoleum that is the resting place of the famous king Tipu Sultan, his father Hyder Ali, and his mother, Fakhr-Un-Nisa. The place was actually built by Tippu Sultan to contain the graves of his parents. However, after he was killed during the Siege of Srirangapatna in 1799, he was buried there. The monument was built by Tipu Sultan in 1782-84 at Srirangapatna. Now, the mausoleum is home to the graves of many royals and people from Tipu Sultan s regime. The original doors of the mausoleum had been removed and shifted to London, and the new door now in place was gifted to India by the British. You can take a short ride via NH-150A to the place and honour the king who fought against colonial rule.",
+    "distance": "",
+    "best_time_to_visit": "",
+    "things_to_do": "",
+    "entry_fee": "",
+    "timings": "Everyday from 8am to 6:30 pm.",
+    "how_to_reach": "",
+    "slug": "gumbaz-e-shahi"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 19,
+  "fields": {
+    "district": 5,
+    "name": "Sri Krishna Temple",
+    "description": "A historic temple dedicated to Lord Krishna, known for its unique architecture and spiritual significance.",
+    "distance": "0.5 km from Udupi city center",
+    "best_time_to_visit": "October to February",
+    "things_to_do": "Attend the morning rituals, explore the temple architecture, and enjoy local prasadam.",
+    "entry_fee": "Free",
+    "timings": "5:30 AM - 1:00 PM, 4:00 PM - 9:00 PM",
+    "how_to_reach": "Accessible via local buses and auto-rickshaws from Udupi city.",
+    "slug": "sri-krishna-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 20,
+  "fields": {
+    "district": 5,
+    "name": "Malpe Beach",
+    "description": "A popular beach destination known for its golden sands, water sports, and stunning sunsets",
+    "distance": "6 km from Udupi city center",
+    "best_time_to_visit": "November to March",
+    "things_to_do": "Water sports, beach volleyball, and enjoy fresh seafood at local shacks.",
+    "entry_fee": "Free",
+    "timings": "Open 24 hours",
+    "how_to_reach": "Buses and auto-rickshaws are available from Udupi to Malpe Beach.",
+    "slug": "malpe-beach"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 21,
+  "fields": {
+    "district": 5,
+    "name": "St. Mary s Island",
+    "description": "An idyllic island famous for its coconut palms and unique geological formations of basalt rocks.",
+    "distance": "10 km from Udupi city center",
+    "best_time_to_visit": "November to March",
+    "things_to_do": "Enjoy beach activities, explore the island, and visit the lighthouse.",
+    "entry_fee": "Boat ride fee (approx. INR 300)",
+    "timings": "Boat service usually operates from 9:00 AM - 5:00",
+    "how_to_reach": "Take a boat from Malpe Beach to reach St. Mary s Island.",
+    "slug": "st-marys-island"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 22,
+  "fields": {
+    "district": 5,
+    "name": "Kaup Beach and Lighthouse",
+    "description": "A serene beach known for its historic lighthouse, which offers panoramic views of the coastline.",
+    "distance": "15 km from Udupi city center",
+    "best_time_to_visit": "November to March",
+    "things_to_do": "Visit the lighthouse, relax on the beach, and enjoy water activities.",
+    "entry_fee": "Free for the beach, lighthouse entry may have a nominal fee.",
+    "timings": "Lighthouse open from 4:00 PM - 5:30 PM",
+    "how_to_reach": "Accessible by local transport, autos, and taxis from Udupi.",
+    "slug": "kaup-beach-and-lighthouse"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 23,
+  "fields": {
+    "district": 5,
+    "name": "Anantheshwara Temple",
+    "description": "An ancient temple dedicated to Lord Anantheshwara, known for its rich history and beautiful architecture.",
+    "distance": "1 km from Udupi city center",
+    "best_time_to_visit": "Throughout the year",
+    "things_to_do": "Participate in poojas and explore the temple complex.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 12:00 PM, 5:00 PM - 8:00 PM",
+    "how_to_reach": "Walkable distance from Udupi city center.",
+    "slug": "anantheshwara-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 24,
+  "fields": {
+    "district": 6,
+    "name": "Sri Durga Temple",
+    "description": "A revered temple dedicated to Goddess Durga, known for its beautiful architecture and spiritual ambiance.",
+    "distance": "2 km from Davangere city center",
+    "best_time_to_visit": "September to February",
+    "things_to_do": "Participate in rituals, admire the intricate carvings, and attend festivals.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 1:00 PM, 4:00 PM - 8:30 PM",
+    "how_to_reach": "Accessible by local buses, auto-rickshaws, and taxis from Davangere city.",
+    "slug": "sri-durga-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 25,
+  "fields": {
+    "district": 6,
+    "name": "Harihareshwara Temple",
+    "description": "An ancient temple dedicated to Lord Shiva, known for its rich history and serene surroundings.",
+    "distance": "15 km from Davangere city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Attend poojas, explore the temple architecture, and enjoy the scenic beauty.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 12:00 PM, 5:00 PM - 8:00 PM",
+    "how_to_reach": "Accessible by local buses and taxis from Davangere.",
+    "slug": "harihareshwara-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 26,
+  "fields": {
+    "district": 6,
+    "name": "Anegundi",
+    "description": "A historic village known for its archaeological significance and ancient temples.",
+    "distance": "50 km from Davangere city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Explore ancient ruins, visit temples, and enjoy the local culture.",
+    "entry_fee": "Free",
+    "timings": "Open all day",
+    "how_to_reach": "Reachable by local buses and taxis from Davangere.",
+    "slug": "anegundi"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 27,
+  "fields": {
+    "district": 6,
+    "name": "Shivappa Nayaka Palace",
+    "description": "A historical palace showcasing the rich heritage and architectural brilliance of the Nayaka dynasty.",
+    "distance": "3 km from Davangere city center",
+    "best_time_to_visit": "October to February",
+    "things_to_do": "Tour the palace, learn about local history, and take photographs.",
+    "entry_fee": "Free",
+    "timings": "9:00 AM - 5:00 PM",
+    "how_to_reach": "Easily accessible by local transport from Davangere.",
+    "slug": "shivappa-nayaka-palace"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 28,
+  "fields": {
+    "district": 7,
+    "name": "Ranganathaswamy Temple",
+    "description": "An ancient temple dedicated to Lord Ranganatha, showcasing exquisite architecture and significant historical importance.",
+    "distance": "15 km from Mandya city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Explore the temple, participate in rituals, and enjoy the beautiful surroundings.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 12:00 PM, 4:00 PM - 8:00 PM",
+    "how_to_reach": "Accessible by local buses and taxis from Mandya.",
+    "slug": "ranganathaswamy-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 29,
+  "fields": {
+    "district": 7,
+    "name": "KRS Brindavan Gardens",
+    "description": "Famous for its stunning landscaped gardens and musical fountain, this is a popular tourist spot.",
+    "distance": "30 km from Mandya city center",
+    "best_time_to_visit": "September to March",
+    "things_to_do": "Enjoy the gardens, watch the fountain show, and take photographs.",
+    "entry_fee": "INR 30 for adults,  INR 15 for children",
+    "timings": "6:00 AM - 9:00 PM",
+    "how_to_reach": "Accessible by private vehicles, local buses, and taxis from Mandya.",
+    "slug": "krs-brindavan-gardens"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 30,
+  "fields": {
+    "district": 7,
+    "name": "Srirangapatna Fort",
+    "description": "A historical fort built by Tipu Sultan, known for its impressive architecture and rich history.",
+    "distance": "15 km from Mandya city center",
+    "best_time_to_visit": "October to February",
+    "things_to_do": "Explore the fort, visit the museum, and learn about the history.",
+    "entry_fee": "INR 5 per person",
+    "timings": "6:00 AM - 6:00 PM",
+    "how_to_reach": "Accessible by local transport from Mandya.",
+    "slug": "srirangapatna-fort"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 31,
+  "fields": {
+    "district": 7,
+    "name": "Mandya Zoo",
+    "description": "A small zoo housing a variety of animals and birds, ideal for family outings.",
+    "distance": "3 km from Mandya city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "See different species of animals, enjoy nature walks, and have picnics.",
+    "entry_fee": "INR 20 for adults, INR 10 for children",
+    "timings": "9:00 AM - 5:00 PM",
+    "how_to_reach": "Easily accessible by local transport and walking distance from the city center.",
+    "slug": "mandya-zoo"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 32,
+  "fields": {
+    "district": 7,
+    "name": "Kambadahalli",
+    "description": "A historic site known for its ancient temples and rich cultural heritage.",
+    "distance": "12 km from Mandya city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Explore the temples, learn about local history, and enjoy the scenic countryside.",
+    "entry_fee": "Free",
+    "timings": "Open all day",
+    "how_to_reach": "Accessible by local transport and private vehicles from Mandya.",
+    "slug": "kambadahalli"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 33,
+  "fields": {
+    "district": 8,
+    "name": "Chitradurga Fort",
+    "description": "A massive hill fort known for its historic architecture, impressive walls, and beautiful landscapes. It's a great place to explore the rich history of the region.",
+    "distance": "3 km from Chitradurga city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Explore the fort, hike to the top for panoramic views, and visit ancient temples within the fort.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 6:00 PM",
+    "how_to_reach": "Accessible by local transport, taxis, and on foot from the city center.",
+    "slug": "chitradurga-fort"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 34,
+  "fields": {
+    "district": 8,
+    "name": "Bhima Temple",
+    "description": "An ancient temple dedicated to Bhima, one of the Pandavas, featuring intricate carvings and historical significance.",
+    "distance": "5 km from Chitradurga city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Visit the temple, admire the architecture, and learn about the local legends associated with Bhima.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 8:00 PM",
+    "how_to_reach": "Reachable by local buses and taxis from Chitradurga city.",
+    "slug": "bhima-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 35,
+  "fields": {
+    "district": 8,
+    "name": "Ekanatheshwari Temple",
+    "description": "A significant temple dedicated to Goddess Ekanatheshwari, attracting devotees from far and wide. The temple is renowned for its beautiful architecture and serene atmosphere.",
+    "distance": "2 km from Chitradurga city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Participate in the rituals, explore the temple premises, and enjoy the peaceful environment.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 12:00 PM, 5:00 PM - 8:00 PM",
+    "how_to_reach": "Easily accessible by local transport and walking distance from the city center.",
+    "slug": "ekanatheshwari-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 36,
+  "fields": {
+    "district": 8,
+    "name": "Chennakeshava Temple",
+    "description": "A historical temple dedicated to Lord Vishnu, known for its stunning architecture and intricate carvings that reflect the Dravidian style.",
+    "distance": "3 km from Chitradurga city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Explore the temple architecture, participate in rituals, and enjoy the serene atmosphere.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 8:00 PM",
+    "how_to_reach": "Accessible by local transport and within walking distance from the city center.",
+    "slug": "chennakeshava-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 37,
+  "fields": {
+    "district": 9,
+    "name": "Hoysaleswara Temple",
+    "description": "A stunning temple built in the 12th century, dedicated to Lord Shiva. Known for its intricate sculptures and detailed carvings, it is a prime example of Hoysala architecture.",
+    "distance": "27 km from Hassan city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Explore the temple's architecture, admire the carvings, and take photographs.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 8:00 PM",
+    "how_to_reach": "Accessible by local buses and taxis from Hassan.",
+    "slug": "hoysaleswara-temple"
+  }
+},
+{
+  "model": "guide.place",
+  "pk": 38,
+  "fields": {
+    "district": 9,
+    "name": "Chennakeshava Temple",
+    "description": "A beautiful temple located in Belur, known for its intricate carvings and craftsmanship. It is dedicated to Lord Vishnu and showcases Hoysala architecture.",
+    "distance": "38 km from Hassan city center",
+    "best_time_to_visit": "October to March",
+    "things_to_do": "Visit the temple, enjoy the architecture, and learn about its historical significance.",
+    "entry_fee": "Free",
+    "timings": "6:00 AM - 8:00 PM",
+    "how_to_reach": "Reachable by local buses and taxis from Hassan.",
+    "slug": "chennakeshava-temple-1"
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 1,
+  "fields": {
+    "image": "images/Smg_kodachadri_kCiiNoR.jpg",
+    "place": 1
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 2,
+  "fields": {
+    "image": "images/joga1_ipQ551O.jpg",
+    "place": 2
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 3,
+  "fields": {
+    "image": "images/Joga2_SrLJTaI.jpg",
+    "place": 2
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 4,
+  "fields": {
+    "image": "images/Smg_sakarebailu_s1CzdHZ.jpg",
+    "place": 3
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 5,
+  "fields": {
+    "image": "images/Smg_gudavi.jpg",
+    "place": 4
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 7,
+  "fields": {
+    "image": "images/My_palace_7h6HGPv.jpg",
+    "place": 6
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 8,
+  "fields": {
+    "image": "images/musueupalace2_wnc8tlG.jpg",
+    "place": 6
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 9,
+  "fields": {
+    "image": "images/My_zoo_5G3aeBv.jpg",
+    "place": 7
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 10,
+  "fields": {
+    "image": "images/karanji1_yrt3sze.jpg",
+    "place": 8
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 11,
+  "fields": {
+    "image": "images/My_Ranganathittu.jpg",
+    "place": 9
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 12,
+  "fields": {
+    "image": "images/chik_kuduremukha_WbQ3ETs.jpg",
+    "place": 10
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 14,
+  "fields": {
+    "image": "images/chikka_Bhadra_wildlife_kfYddpB_VvelDCh.jpg",
+    "place": 12
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 15,
+  "fields": {
+    "image": "images/bng_lalbgag_aWpBN8V_Pz2X9fD.jpg",
+    "place": 13
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 16,
+  "fields": {
+    "image": "images/bng_cubbun_PU15zvE.jpg",
+    "place": 14
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 17,
+  "fields": {
+    "image": "images/chikka_Sharadamba_mLlFvpQ_YbY3mXr.jpg",
+    "place": 11
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 18,
+  "fields": {
+    "image": "images/bangalore-palace..jpg",
+    "place": 15
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 19,
+  "fields": {
+    "image": "images/vidhansoudha.jpg",
+    "place": 16
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 20,
+  "fields": {
+    "image": "images/ISKCONTemple.jpg",
+    "place": 17
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 21,
+  "fields": {
+    "image": "images/Nagara-Fort.jpg",
+    "place": 5
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 22,
+  "fields": {
+    "image": "images/Gumbaz.jpg",
+    "place": 18
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 23,
+  "fields": {
+    "image": "images/Udupi-Sri-Krishna.jpg",
+    "place": 19
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 24,
+  "fields": {
+    "image": "images/malpe.jpg",
+    "place": 20
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 25,
+  "fields": {
+    "image": "images/St._Marys_Island.jpg",
+    "place": 21
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 26,
+  "fields": {
+    "image": "images/Kapu_Beach_Lighthouse.jpg",
+    "place": 22
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 27,
+  "fields": {
+    "image": "images/Anantheshwara_Temple.jpeg",
+    "place": 23
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 28,
+  "fields": {
+    "image": "images/Harihareshwara_temple_at_Harihar.JPG",
+    "place": 25
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 29,
+  "fields": {
+    "image": "images/images.jpeg",
+    "place": 24
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 30,
+  "fields": {
+    "image": "images/anegudi.jpg",
+    "place": 26
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 31,
+  "fields": {
+    "image": "images/Shivappa_Nayaka_Palace.jpeg",
+    "place": 27
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 32,
+  "fields": {
+    "image": "images/Ranganathaswamy_Temple.jpg",
+    "place": 28
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 33,
+  "fields": {
+    "image": "images/KRS_Brindavan_Gardens.jpeg",
+    "place": 29
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 34,
+  "fields": {
+    "image": "images/Srirangapatna_Fort.JPG",
+    "place": 30
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 35,
+  "fields": {
+    "image": "images/Mandya_Zoo.jpeg",
+    "place": 31
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 36,
+  "fields": {
+    "image": "images/Kambadahalli.jpeg",
+    "place": 32
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 37,
+  "fields": {
+    "image": "images/Chitradurga_Fort.jpeg",
+    "place": 33
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 38,
+  "fields": {
+    "image": "images/bhima_temple.jpg",
+    "place": 34
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 39,
+  "fields": {
+    "image": "images/Ekanatheshwari_Temple.jpeg",
+    "place": 35
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 40,
+  "fields": {
+    "image": "images/Chennakeshava_Temple.jpeg",
+    "place": 36
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 41,
+  "fields": {
+    "image": "images/Hoysaleswara_Temple.jpg",
+    "place": 37
+  }
+},
+{
+  "model": "guide.placeimage",
+  "pk": 42,
+  "fields": {
+    "image": "images/01.jpeg",
+    "place": 38
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add district",
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "codename": "add_district"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change district",
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "codename": "change_district"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete district",
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "codename": "delete_district"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view district",
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "codename": "view_district"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add place",
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "codename": "add_place"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change place",
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "codename": "change_place"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete place",
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "codename": "delete_place"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view place",
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "codename": "view_place"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add place image",
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "codename": "add_placeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change place image",
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "codename": "change_placeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete place image",
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "codename": "delete_placeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view place image",
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "codename": "view_placeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add feedback",
+    "content_type": [
+      "guide",
+      "feedback"
+    ],
+    "codename": "add_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change feedback",
+    "content_type": [
+      "guide",
+      "feedback"
+    ],
+    "codename": "change_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete feedback",
+    "content_type": [
+      "guide",
+      "feedback"
+    ],
+    "codename": "delete_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view feedback",
+    "content_type": [
+      "guide",
+      "feedback"
+    ],
+    "codename": "view_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add review",
+    "content_type": [
+      "guide",
+      "review"
+    ],
+    "codename": "add_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change review",
+    "content_type": [
+      "guide",
+      "review"
+    ],
+    "codename": "change_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete review",
+    "content_type": [
+      "guide",
+      "review"
+    ],
+    "codename": "delete_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view review",
+    "content_type": [
+      "guide",
+      "review"
+    ],
+    "codename": "view_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "add_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "change_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "delete_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "view_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view profile",
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add profile",
+    "content_type": [
+      "guide",
+      "profile"
+    ],
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change profile",
+    "content_type": [
+      "guide",
+      "profile"
+    ],
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": [
+      "guide",
+      "profile"
+    ],
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view profile",
+    "content_type": [
+      "guide",
+      "profile"
+    ],
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$WMIwckmuSNnfc3LkihVoZA$ycW87qG4VOQyrDBfl7mTd0otb5VG+yVb2yTIo15/O+E=",
+    "last_login": "2024-09-19T10:30:34.269Z",
+    "is_superuser": true,
+    "username": "annapoorna123",
+    "first_name": "",
+    "last_name": "",
+    "email": "annapoorna@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-09-18T08:58:25.258Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$EtLeMTqRbZ8Ox9fQLIEP12$AXCRwhKOqee02J/KEg+WmRLa61HdOrsqDfWSzpXLkEk=",
+    "last_login": "2024-10-07T12:28:40.567Z",
+    "is_superuser": true,
+    "username": "anu",
+    "first_name": "",
+    "last_name": "",
+    "email": "anu@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-09-19T10:31:47.808Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$eRpzEhrIHa01wQ8figD5Uw$Eu758XUU5PIbqAKs6GgtWj4K+VrNUN1DckTNJ/mcTYA=",
+    "last_login": "2024-10-07T07:18:47.350Z",
+    "is_superuser": false,
+    "username": "Annapoorna",
+    "first_name": "",
+    "last_name": "",
+    "email": "annapoorna.s.p.k@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-09-24T12:00:48.031Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$tMIVamw87hmSuRSw5XNRYy$eRTpHrfxVPT4Na5cP5nzHc9dkr9X3/S8tZgbYDZnDbk=",
+    "last_login": "2024-09-30T11:20:11.825Z",
+    "is_superuser": false,
+    "username": "nehal",
+    "first_name": "",
+    "last_name": "",
+    "email": "nehal@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-09-26T07:07:28.537Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "guide.review",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "annapoorna123"
+    ],
+    "place": 37,
+    "name": "annapoornaanu",
+    "email": "annapoorna.s.p.k@gmail.com",
+    "rating": 2,
+    "comments": "something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review, something in the review,",
+    "created_at": "2024-09-30T06:52:56.134Z"
+  }
+},
+{
+  "model": "guide.review",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "Annapoorna"
+    ],
+    "place": 1,
+    "name": "Annapoorna",
+    "email": "annapoorna.s.p.k@gmail.com",
+    "rating": 5,
+    "comments": "nice",
+    "created_at": "2024-09-30T11:12:09.310Z"
+  }
+},
+
+
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-09-18T09:01:47.349Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "1",
+    "object_repr": "Shivamogga",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-09-18T09:02:35.308Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "2",
+    "object_repr": "Bangalore",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-09-18T09:02:57.429Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "3",
+    "object_repr": "Musuru",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-09-18T09:03:18.249Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "4",
+    "object_repr": "Chikkamagaluru",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-09-18T09:05:48.610Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "1",
+    "object_repr": "Kodachadri",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-09-18T09:06:25.440Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "1",
+    "object_repr": "Image for Kodachadri",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-09-18T09:08:40.052Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "2",
+    "object_repr": "Jog Falls",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-09-18T09:09:03.172Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "2",
+    "object_repr": "Image for Jog Falls",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-09-18T09:09:15.266Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "3",
+    "object_repr": "Image for Jog Falls",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-09-18T09:10:29.532Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "3",
+    "object_repr": "Sakrebayalu Elephant Camp",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-09-18T09:11:02.461Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "4",
+    "object_repr": "Image for Sakrebayalu Elephant Camp",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-09-18T09:13:16.261Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "4",
+    "object_repr": "Gudavi Bird Sanctuary",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-09-18T09:13:30.003Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "5",
+    "object_repr": "Image for Gudavi Bird Sanctuary",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-09-18T09:14:25.583Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "5",
+    "object_repr": "Nagara Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-09-18T09:14:40.119Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "6",
+    "object_repr": "Image for Nagara Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-09-18T09:15:59.831Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "3",
+    "object_repr": "Mysuru",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2024-09-18T09:16:52.346Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "6",
+    "object_repr": "Mysore palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2024-09-18T09:17:21.014Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "7",
+    "object_repr": "Image for Mysore palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2024-09-18T09:17:37.632Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "8",
+    "object_repr": "Image for Mysore palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2024-09-18T09:18:20.171Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "7",
+    "object_repr": "Sri Chamarajendra Zoological Gardens",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2024-09-18T09:18:31.493Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "9",
+    "object_repr": "Image for Sri Chamarajendra Zoological Gardens",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2024-09-18T09:20:04.650Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "8",
+    "object_repr": "Karanji Lake",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2024-09-18T09:20:16.413Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "10",
+    "object_repr": "Image for Karanji Lake",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2024-09-18T09:21:53.295Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "9",
+    "object_repr": "Ranganathittu Bird Sanctuary",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2024-09-18T09:22:47.212Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "11",
+    "object_repr": "Image for Ranganathittu Bird Sanctuary",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2024-09-18T09:24:24.757Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "10",
+    "object_repr": "Kudremukh Trek",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2024-09-18T09:25:04.297Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "12",
+    "object_repr": "Image for Kudremukh Trek",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2024-09-18T09:26:15.710Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "11",
+    "object_repr": "Sharadamba temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2024-09-18T09:26:28.176Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "13",
+    "object_repr": "Image for Kudremukh Trek",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2024-09-18T09:28:04.848Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "12",
+    "object_repr": "Bhadra wildlife sanctuary",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2024-09-18T09:28:28.394Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "14",
+    "object_repr": "Image for Bhadra wildlife sanctuary",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2024-09-18T09:30:16.087Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "13",
+    "object_repr": "Lalbagh Botanical Garden",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2024-09-18T09:30:56.225Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "15",
+    "object_repr": "Image for Lalbagh Botanical Garden",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2024-09-18T09:32:14.580Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "14",
+    "object_repr": "Cubbon Park",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2024-09-18T09:32:27.548Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "16",
+    "object_repr": "Image for Cubbon Park",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2024-09-18T09:34:55.675Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "17",
+    "object_repr": "Image for Sharadamba temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2024-09-18T10:42:37.504Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "object_id": "1",
+    "object_repr": "sejal",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2024-09-18T12:09:50.505Z",
+    "user": [
+      "annapoorna123"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "sejal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2024-09-19T10:42:42.422Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "annapoorna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2024-09-19T10:42:57.807Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "object_id": "2",
+    "object_repr": "anu",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Profile picture\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2024-09-20T12:20:28.755Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "nehal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2024-09-20T12:20:28.755Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "sejal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2024-09-20T12:38:28.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "10",
+    "object_repr": "ankitha",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2024-09-20T12:38:28.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "9",
+    "object_repr": "anusha",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2024-09-20T12:38:28.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "11",
+    "object_repr": "anvitha",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2024-09-20T12:38:28.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "12",
+    "object_repr": "anvitha123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2024-09-20T12:38:28.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "7",
+    "object_repr": "john",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2024-09-20T12:38:28.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "8",
+    "object_repr": "nehal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2024-09-24T06:22:53.746Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "5",
+    "object_repr": "Udupi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2024-09-24T06:43:16.719Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "6",
+    "object_repr": "Davangere",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2024-09-24T06:44:53.979Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "7",
+    "object_repr": "Mandya",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2024-09-24T06:45:12.084Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "8",
+    "object_repr": "Chitradurga",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2024-09-24T06:46:56.344Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "9",
+    "object_repr": "Hassan",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2024-09-24T06:48:14.198Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "district"
+    ],
+    "object_id": "10",
+    "object_repr": "Dharwad",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2024-09-24T11:20:58.852Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "object_id": "13",
+    "object_repr": "anusha",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Profile picture\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2024-09-25T05:09:10.877Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "16",
+    "object_repr": "ankitha",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2024-09-25T05:09:10.877Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "17",
+    "object_repr": "anvitha",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2024-09-26T06:41:22.094Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "15",
+    "object_repr": "anusha",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2024-09-26T06:41:22.094Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "14",
+    "object_repr": "nehal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2024-09-26T06:41:22.094Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "13",
+    "object_repr": "sejal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2024-09-26T07:58:36.425Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "15",
+    "object_repr": "Bangalore Palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2024-09-26T08:00:28.200Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "16",
+    "object_repr": "Vidhana Soudha",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2024-09-26T08:01:32.862Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "17",
+    "object_repr": "ISKCON Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2024-09-26T08:07:55.249Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "18",
+    "object_repr": "Gumbaz-e-Shahi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2024-09-26T10:46:41.864Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "13",
+    "object_repr": "Image for Kudremukh Trek",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2024-09-26T11:17:52.709Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "19",
+    "object_repr": "Sri Krishna Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2024-09-26T11:18:52.977Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "20",
+    "object_repr": "Malpe Beach",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2024-09-26T11:29:27.802Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "21",
+    "object_repr": "St. Mary s Island",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2024-09-26T11:30:37.466Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "22",
+    "object_repr": "Kaup Beach and Lighthouse",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2024-09-26T11:31:35.337Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "23",
+    "object_repr": "Anantheshwara Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2024-09-26T11:33:11.536Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "24",
+    "object_repr": "Sri Durga Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2024-09-26T11:34:14.617Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "25",
+    "object_repr": "Harihareshwara Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2024-09-26T11:35:15.375Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "26",
+    "object_repr": "Anegundi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2024-09-26T11:36:26.709Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "27",
+    "object_repr": "Shivappa Nayaka Palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2024-09-26T11:37:37.430Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "28",
+    "object_repr": "Ranganathaswamy Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2024-09-26T11:38:40.043Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "29",
+    "object_repr": "KRS Brindavan Gardens",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2024-09-26T11:39:42.797Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "30",
+    "object_repr": "Srirangapatna Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2024-09-26T11:40:35.984Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "31",
+    "object_repr": "Mandya Zoo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2024-09-26T11:41:40.797Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "32",
+    "object_repr": "Kambadahalli",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2024-09-26T11:42:40.482Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "33",
+    "object_repr": "Chitradurga Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2024-09-26T11:44:03.329Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "34",
+    "object_repr": "Bhima Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2024-09-26T11:44:58.872Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "35",
+    "object_repr": "Ekanatheshwari Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2024-09-26T11:45:55.719Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "36",
+    "object_repr": "Chennakeshava Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2024-09-26T11:46:51.915Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "37",
+    "object_repr": "Hoysaleswara Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2024-09-26T11:50:08.186Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "38",
+    "object_repr": "Chennakeshava Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2024-09-27T06:02:03.264Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "18",
+    "object_repr": "Image for Bangalore Palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2024-09-27T06:03:12.691Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "19",
+    "object_repr": "Image for Vidhana Soudha",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2024-09-27T06:04:37.399Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "20",
+    "object_repr": "Image for ISKCON Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2024-09-27T09:20:58.048Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "6",
+    "object_repr": "Image for Nagara Fort",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2024-09-27T09:21:10.023Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "21",
+    "object_repr": "Image for Nagara Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2024-09-27T09:22:47.529Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "22",
+    "object_repr": "Image for Gumbaz-e-Shahi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2024-09-27T09:24:39.142Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "23",
+    "object_repr": "Image for Sri Krishna Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2024-09-27T09:25:40.175Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "24",
+    "object_repr": "Image for Malpe Beach",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2024-09-27T09:26:30.045Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "25",
+    "object_repr": "Image for St. Mary s Island",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2024-09-27T09:27:53.677Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "26",
+    "object_repr": "Image for Kaup Beach and Lighthouse",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2024-09-27T09:29:47.075Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "27",
+    "object_repr": "Image for Anantheshwara Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2024-09-27T11:28:15.410Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "userprofile"
+    ],
+    "object_id": "18",
+    "object_repr": "nehal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2024-09-27T11:54:02.569Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "28",
+    "object_repr": "Image for Harihareshwara Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2024-09-29T13:15:18.091Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "29",
+    "object_repr": "Image for Sri Durga Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2024-09-29T13:16:29.145Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "30",
+    "object_repr": "Image for Anegundi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2024-09-29T13:18:55.431Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "31",
+    "object_repr": "Image for Shivappa Nayaka Palace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2024-09-29T13:19:58.050Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "32",
+    "object_repr": "Image for Ranganathaswamy Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2024-09-29T13:21:23.863Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "33",
+    "object_repr": "Image for KRS Brindavan Gardens",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2024-09-29T13:25:07.907Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "34",
+    "object_repr": "Image for Srirangapatna Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2024-09-29T13:50:44.003Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "35",
+    "object_repr": "Image for Mandya Zoo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2024-09-29T13:51:50.591Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "36",
+    "object_repr": "Image for Kambadahalli",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2024-09-29T13:53:13.238Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "37",
+    "object_repr": "Image for Chitradurga Fort",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2024-09-29T13:54:16.312Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "38",
+    "object_repr": "Image for Bhima Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2024-09-29T13:55:18.350Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "39",
+    "object_repr": "Image for Ekanatheshwari Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2024-09-29T13:56:01.090Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "40",
+    "object_repr": "Image for Chennakeshava Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2024-09-29T13:56:53.461Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "41",
+    "object_repr": "Image for Hoysaleswara Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2024-09-29T13:57:59.124Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "placeimage"
+    ],
+    "object_id": "42",
+    "object_repr": "Image for Chennakeshava Temple",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2024-10-07T12:30:02.406Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "13",
+    "object_repr": "Lalbagh Botanical Garden",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2024-10-07T12:30:55.047Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "15",
+    "object_repr": "Bangalore Palace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2024-10-07T12:31:34.671Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "21",
+    "object_repr": "St. Mary's Island",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2024-10-07T12:32:27.973Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "29",
+    "object_repr": "KRS Brindavan Gardens",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2024-10-07T12:34:41.731Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "31",
+    "object_repr": "Mandya Zoo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2024-10-07T12:34:51.251Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "30",
+    "object_repr": "Srirangapatna Fort",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2024-10-07T12:37:52.432Z",
+    "user": [
+      "anu"
+    ],
+    "content_type": [
+      "guide",
+      "place"
+    ],
+    "object_id": "3",
+    "object_repr": "Sakrebayalu Elephant Camp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Entry fee\"]}}]"
+  }
+}
+]

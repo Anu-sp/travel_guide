@@ -10,11 +10,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='userprofile',
-            name='bio',
-            field=models.TextField(blank=True, null=True),
-        ),
+       
         migrations.AddField(
             model_name='userprofile',
             name='date_of_birth',
@@ -25,11 +21,7 @@ class Migration(migrations.Migration):
             name='gender',
             field=models.CharField(blank=True, choices=[('M', 'Male'), ('F', 'Female'), ('O', 'Other')], max_length=1, null=True),
         ),
-        migrations.AddField(
-            model_name='userprofile',
-            name='location',
-            field=models.CharField(blank=True, max_length=100, null=True),
-        ),
+      
         migrations.AddField(
             model_name='userprofile',
             name='phone_number',
@@ -40,7 +32,5 @@ class Migration(migrations.Migration):
             name='profile_picture',
             field=models.ImageField(blank=True, upload_to='profile_pics'),
         ),
-        migrations.DeleteModel(
-            name='Feedback',
-        ),
+       
     ]

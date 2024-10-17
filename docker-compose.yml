@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    build: .  # Ensure this is pointing to the correct Dockerfile location
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=travel_guide-db-1
+      - DB_NAME=guide
+    networks:
+      - app-network
+
+  db:
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongo_data:
+
+networks:
+  app-network:
+

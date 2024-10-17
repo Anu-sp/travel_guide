@@ -80,20 +80,26 @@ WSGI_APPLICATION = 'travel_guide.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Relational dbms
-    # - postgres sql
-    # - mysql
 
-# Non-relational dbms
-    # - mongo db
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': os.environ.get('DB_NAME', 'guide'),  # Fetches DB_NAME from environment, defaults to 'guide'
+        'ENFORCE_SCHEMA': False,  # Allows flexibility in schema
+        'CLIENT': {
+            'host': 'mongodb://travel_guide-db-1:27017/',  # Connects to local MongoDB instance on the host machine
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -164,3 +170,19 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'annapoorna.s.p.k@gmail.com'
 EMAIL_HOST_PASSWORD = 'vpyz plyc hncj nbvc'
 DEFAULT_FROM_EMAIL = 'annapoorna.s.p.k@gmail.com'
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+from pymongo import MongoClient
+
+# Get the MongoDB URI from environment variables or use a default
+MONGO_URI = os.getenv('MONGO_URI', 'mongodb://travel_guide-db-1:27017')
+
+# Initialize the MongoDB client
+client = MongoClient(MONGO_URI)
+
+# Select the database
+DATABASE_NAME = 'guide'
+db = client[DATABASE_NAME]

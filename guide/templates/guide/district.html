@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Districts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-       
         /* Reset and Basic Styles */
         body, html {
             margin: 0;
@@ -25,19 +29,19 @@
         .header {
             background: #dccbbc;
             color: white;
-            padding: 10px;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            z-index: 1000;
-            
+            z-index: 500;
+            height: 55px;
         }
 
         .header nav a {
             color: rgb(6, 6, 6);
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 0px 15px;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -48,23 +52,22 @@
 
         /* Container Styles */
         .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px;
-        gap: 20px;
-        margin-top: 90px; /* Adjust this value as needed */
-    }
-
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            margin-top: 90px; 
+            /* Adjust this value as needed */
+        }
 
         /* District Card Styles */
         .district {
-            
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: 300px;
+            width: 200px;
             transition: transform 0.2s;
         }
 
@@ -128,16 +131,82 @@
         .pagination span {
             padding: 10px 15px;
         }
+
+        /* Profile Image */
+        .profile-image {
+            width: 40px; /* Profile image size */
+            height: 40px; /* Profile image size */
+            border-radius: 50%; /* Make it circular */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        /* Modal Styles */
+        .modal-header {
+            background-color: #9fb2c6; /* Bootstrap primary color */
+            color: white; /* Text color */
+            border-bottom: 2px solid #97a6b7; /* Darker border */
+        }
+
+        /* Modal Title */
+        .modal-title {
+            font-size: 1.5rem; /* Larger font size for the title */
+        }
+        
+        .modal-dialog {
+            position: absolute; /* Position it absolutely */
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the left */
+           /* Set a max width if necessary */
+            width: 4000px; /* Allow it to size based on content */
+        }
+        /* Modal Body */
+        .modal-body {
+            padding: 20px; /* Add padding around the modal body */
+        }
+
+        /* Text Style */
+        .modal-body p {
+            color: #000;
+            font-size: 1rem; /* Regular text size */
+            margin-bottom: 10px; /* Space between paragraphs */
+        }
+
+        /* Modal Footer */
+        .modal-footer {
+            background-color: #f7f7f7; /* Light background for footer */
+            border-top: 2px solid #e5e5e5; /* Light border above footer */
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background-color: #007bff; /* Primary button color */
+            border-color: #007bff; /* Border color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+        .btn-danger {
+            background-color: #dc3545; /* Danger button color */
+            border-color: #dc3545; /* Border color */
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333; /* Darker shade on hover */
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <nav>
             <a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+            {% if user.is_authenticated %}
+                <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-image" data-toggle="modal" data-target="#profileModal" style="margin-left:1350px ;">
+            {% else %}  
+                <a class="nav-link" href="{% url 'login' %}?next={% url 'district_page' %}" style="margin-left: 1450px;">Login</a>
+            {% endif %}
         </nav>
-        {% if user.is_authenticated %}
-        <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-picture" style="width: 40px; height: 40px; border-radius: 50%;">
-        {% endif %}
     </div>
 
     <div class="container">
@@ -146,24 +215,74 @@
             <img src="{{ district.image.url }}" alt="{{ district.name }}">
             <div class="info">
                 <h3>{{ district.name }}</h3>
-                <a href="{% url 'district_detail' district.id %}"><i class="fas fa-compass"></i> Explore</a>
+                <a href="{% url 'district_detail' district.slug %}?page={{ districts.number }}"><i class="fas fa-compass"></i> Explore</a>
             </div>
         </div>
         {% endfor %}
     </div>
 
+    
     <div class="pagination">
         {% if districts.has_previous %}
-            <a href="?page=1">&laquo; First</a>
-            <a href="?page={{ districts.previous_page_number }}">Prev</a>
+            <a href="?page={{ districts.previous_page_number }}">Previous</a>
         {% endif %}
-
         <span>Page {{ districts.number }} of {{ districts.paginator.num_pages }}</span>
-
         {% if districts.has_next %}
             <a href="?page={{ districts.next_page_number }}">Next</a>
-            <a href="?page={{ districts.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
     </div>
+    
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">{{ user.username }}'s Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {% if user.userprofile.profile_picture %}
+                                <img src="{{ user.userprofile.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" class="img-fluid rounded-circle">
+                            {% else %}
+                                <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="img-fluid rounded-circle">
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <h4>User Information</h4>
+                            <p><strong>Name:</strong> {{ user.username }}</p>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Joined on:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+                            <p><strong>Gender:</strong> {{ user.userprofile.gender }}</p>
+                            <p><strong>Date of Birth:</strong> {{ user.userprofile.date_of_birth }}</p>
+                            <p><strong>Phone Number:</strong> {{ user.userprofile.phone_number }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    
+                    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+                    <form method="POST" action="{% url 'logout' %}" class="mt-4">  <!-- Use the logout URL -->
+                        {% csrf_token %}
+                        <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script to handle modal display
+        $(document).ready(function() {
+            $('#profileModal').on('show.bs.modal', function (event) {
+                // Optionally handle any pre-modal display actions here
+            });
+        });
+    </script>
 </body>
 </html>

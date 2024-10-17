@@ -1,17 +1,17 @@
+from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from .models import District, Place, UserProfile, Review
 from .forms import ReviewForm, SignupForm
-from django.contrib.auth import authenticate, login as auth_login, logout, login
-from django.http import JsonResponse, HttpResponseRedirect
-from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, logout, login
+from django.http import JsonResponse, HttpResponseRedirect,HttpResponseForbidden, HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from django.views import View
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
+from .forms import EditProfileForm
+from django.contrib import messages
 
-# Home page view
+
 def home(request):
     profile_picture_url = None
     if request.user.is_authenticated:
@@ -20,13 +20,12 @@ def home(request):
     return render(request, 'guide/home.html', {'profile_picture_url': profile_picture_url})
 
 
-# District page view
 def district_page(request):
-    districts = District.objects.all()  # Retrieve all districts
+    districts = District.objects.all() # Retrieve all districts
     profile_picture_url = None
     paginator = Paginator(districts, 4)  # Pagination for displaying 4 districts per page
 
-    page_number = request.GET.get('page')  # Get the page number from request
+    page_number = request.GET.get('page', 1)  # Get the page number from request (default to 1)
     districts_page = paginator.get_page(page_number)  # Get the specific page
 
     if request.user.is_authenticated:
@@ -42,9 +41,9 @@ def district_page(request):
     })
 
 
-# District detail view
-def district_detail(request, id):
-    district = get_object_or_404(District, id=id)  # Retrieve specific district or return 404
+
+def district_detail(request, slug):
+    district = get_object_or_404(District, slug=slug)  # Retrieve specific district or return 404
     places = Place.objects.filter(district=district)  # Get places within the district
     profile_picture_url = None
 
@@ -62,9 +61,9 @@ def district_detail(request, id):
     })
 
 
-# Place detail view
-def place_detail(request, id):
-    place = get_object_or_404(Place, id=id)  # Retrieve specific place or return 404
+
+def place_detail(request, slug):
+    place = get_object_or_404(Place, slug=slug )  # Retrieve specific place or return 404
     reviews = Review.objects.filter(place=place).order_by('-rating')  # Fetch reviews sorted by rating
     profile_picture_url = None
 
@@ -82,43 +81,23 @@ def place_detail(request, id):
     })
 
 
-# Submit a review for a specific place
-@login_required
-def submit_review(request, place_id):
-    place = get_object_or_404(Place, id=place_id)  # Fetch place by ID
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)  # Initialize review form with submitted data
-        if form.is_valid():
-            review = form.save(commit=False)  # Don't commit to DB yet
-            review.place = place  # Assign review to the correct place
-            if request.user.is_authenticated:
-                review.name = request.user.username  # Use user's name if authenticated
-                review.email = request.user.email  # Use user's email
-            review.save()  # Save review to database
-            return redirect('place_detail', id=place_id)  # Redirect to place detail page
-    else:
-        # Pre-fill form with user's data if authenticated
-        initial_data = {'name': request.user.username, 'email': request.user.email} if request.user.is_authenticated else {}
-        form = ReviewForm(initial=initial_data)
-
-    return render(request, 'guide/place_detail.html', {'form': form, 'place': place})
 
 
-# Search functionality
+
 def search_view(request):
     query = request.GET.get('q', '').strip()  # Get query string from search form
     if query:
-        places = Place.objects.filter(name__icontains=query)  # Filter places by name
+        places = Place.objects.filter(name__icontains=query).distinct()[:5]  # Filter places by name
         if places.exists():  # Check if any places matched the search query
-            suggestions = [{'id': place.id, 'name': place.name} for place in places]
+            suggestions = [{'slug': place.slug, 'name': place.name} for place in places]
             return JsonResponse({'suggestions': suggestions})
         else:
-            return JsonResponse({'suggestions': [{'id': None, 'name': 'No place found'}]})
+            return JsonResponse({'suggestions': [{'slug': None, 'name': 'No place found'}]})
     else:
         return HttpResponseRedirect(reverse('home'))  # Redirect to home if query is empty
 
 
-# Signup functionality
+
 def signup_view(request):
     if request.method == 'POST':
         form = SignupForm(request.POST, request.FILES)  # Include file handling for profile pictures
@@ -137,40 +116,21 @@ def signup_view(request):
     return render(request, 'guide/signup.html', {'form': form})
 
 
-# Login functionality
-def login_view(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        try:
-            user = User.objects.get(email=email)  # Fetch user by email
-            user = authenticate(request, username=user.username, password=password)  # Authenticate
-
-            if user is not None:
-                login(request, user)
-                return redirect('home')  # Redirect to home after login
-            else:
-                error_message = "Invalid email or password."
-        except User.DoesNotExist:
-            error_message = "Invalid email or password."
-
-        return render(request, 'guide/login.html', {'error_message': error_message})
-
-    return render(request, 'guide/login.html')
 
 
-# Profile view with the ability to logout and update profile picture
 @login_required
 def profile_view(request):
-    profile = request.user.userprofile
+    # Ensure a UserProfile exists for the logged-in user
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
 
+    # Handle logout action
     if request.method == 'POST' and 'logout' in request.POST:
-        logout(request)  # Log the user out
-        return redirect('home')  # Redirect to home page after logout
+        logout(request)
+        return redirect('home')  # Redirect to the home page after logout
 
+    # Handle profile update
     if request.method == 'POST':
-        form = SignupForm(request.POST, request.FILES, instance=profile)  # Handle profile update
+        form = SignupForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()  # Save profile updates
             return redirect('profile')  # Reload profile page
@@ -180,8 +140,126 @@ def profile_view(request):
     return render(request, 'guide/profile.html', {'form': form})
 
 
-# Logout view
-class LogoutView(View):
-    def post(self, request):
-        logout(request)  # Log the user out
-        return redirect('home')  # Redirect to home after logout
+@login_required
+def edit_profile(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            # After saving, reload the updated user profile
+            return redirect('home')   # Redirect to the profile page after successful update
+    else:
+        form = EditProfileForm(instance=user_profile)
+
+    # Pass user information to the template
+    context = {
+        'form': form,
+        'user': request.user,  # Pass the current user info
+        'profile': user_profile  # Optional: Pass additional profile info
+    }
+
+    return render(request, 'guide/edit_profile.html', context)
+
+
+
+
+def delete_review(request, review_id):
+    # Ensure that the request is a POST request
+    if request.method == 'POST':
+        # Get the review or return a 404 error if it does not exist
+        review = get_object_or_404(Review, id=review_id)
+
+        # Check if the logged-in user is the owner of the review
+        if review.user != request.user:
+            return HttpResponseForbidden("You are not allowed to delete this review.")
+
+        # Get the slug of the place associated with the review
+        place_slug = review.place.slug  # Assuming review has a ForeignKey to Place
+
+        # Delete the review if the user is authorized
+        review.delete()
+
+        # Redirect to the place detail page using the slug
+        return redirect('place_detail', slug=place_slug)  # Corrected to use slug
+
+    return HttpResponseNotFound("Invalid request method.")
+
+@login_required
+def submit_review(request, place_slug):
+    place = get_object_or_404(Place, slug=place_slug)  # Fetch place by ID
+    if request.method == 'POST':
+        review_id = request.POST.get('reviewId')  # Get the review ID from the form
+        if review_id:
+            review = get_object_or_404(Review, id=review_id, user=request.user)  # Fetch the existing review
+            form = ReviewForm(request.POST, instance=review)  # Bind the form to the existing review
+        else:
+            form = ReviewForm(request.POST)  # Initialize a new review form
+        
+        if form.is_valid():
+            review = form.save(commit=False)  # Don't commit to DB yet
+            review.place = place  # Assign review to the correct place
+            review.user = request.user 
+            if request.user.is_authenticated:
+                review.name = request.user.username  # Use user's name if authenticated
+                review.email = request.user.email  # Use user's email
+            review.save()  # Save review to database
+            return redirect('place_detail', slug=place_slug)  # Redirect to place detail page
+    else:
+        # Pre-fill form with user's data if authenticated
+        initial_data = {'name': request.user.username, 'email': request.user.email} if request.user.is_authenticated else {}
+        form = ReviewForm(initial=initial_data)
+
+    return render(request, 'guide/place_detail.html', {'form': form, 'place': place})
+
+
+def login_view(request):
+    # Capture the 'next' parameter if it exists
+    next_url = request.GET.get('next', 'home')  # Default to 'home' if 'next' is not provided
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        try:
+            # Fetch user by email
+            user_obj = User.objects.get(email=email)
+            user = authenticate(request, username=user_obj.username, password=password)  # Authenticate
+
+            if user is not None:
+                login(request, user)  # Log the user in
+                # Redirect to the 'next' URL or home if no 'next' is provided
+                return redirect(next_url)
+            else:
+                messages.error(request, "Invalid email or password.")
+        except User.DoesNotExist:
+            messages.error(request, "Invalid email or password.")
+
+    # Re-render login page, pass the 'next' URL in the context to preserve it
+    return render(request, 'guide/login.html', {'next': next_url})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
