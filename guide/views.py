@@ -67,6 +67,7 @@ def place_detail(request, slug):
     reviews = Review.objects.filter(place=place).order_by('-rating')  # Fetch reviews sorted by rating
     profile_picture_url = None
 
+   
     if request.user.is_authenticated:
         try:
             profile = request.user.userprofile
@@ -83,11 +84,12 @@ def place_detail(request, slug):
 
 
 
-
 def search_view(request):
     query = request.GET.get('q', '').strip()  # Get query string from search form
+    print(f"Search query: '{query}'")  # Debug line
     if query:
-        places = Place.objects.filter(name__icontains=query).distinct()[:5]  # Filter places by name
+        places = Place.objects.filter(name__icontains=query) # Filter places by name
+        print(f"Found places: {[place.name for place in places]}")  # Debug line
         if places.exists():  # Check if any places matched the search query
             suggestions = [{'slug': place.slug, 'name': place.name} for place in places]
             return JsonResponse({'suggestions': suggestions})
@@ -95,6 +97,7 @@ def search_view(request):
             return JsonResponse({'suggestions': [{'slug': None, 'name': 'No place found'}]})
     else:
         return HttpResponseRedirect(reverse('home'))  # Redirect to home if query is empty
+
 
 
 

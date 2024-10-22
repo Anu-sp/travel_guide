@@ -80,8 +80,6 @@ WSGI_APPLICATION = 'travel_guide.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -96,29 +94,10 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME', 'guide'),  # Fetches DB_NAME from environment, defaults to 'guide'
         'ENFORCE_SCHEMA': False,  # Allows flexibility in schema
         'CLIENT': {
-            'host': 'mongodb://travel_guide-db-1:27017/',  # Connects to local MongoDB instance on the host machine
+            'host': os.environ.get('DB_HOST', 'mongodb://localhost:27017/'),  # Default to localhost if not set
         }
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
-# AUTH_PASSWORD_VALIDATORS = [
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-#     },
-# ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -127,9 +106,9 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = True   #Enables Django's translation system.
 
-USE_TZ = True
+USE_TZ = True   #Allows Django to use timezone-aware datetimes.
 
 
 # Static files (CSS, JavaScript, Images)
@@ -150,39 +129,18 @@ STATICFILES_DIRS = [
     BASE_DIR / 'guide' / 'static',  # Adjust this to ensure Django looks for static files here
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-# settings.py
-
-# Make sure this is set up correctly
 LOGIN_URL = 'login'  # Your login URL
 LOGOUT_URL = 'logout'  # Your logout URL
-
-
-
-# Add this line
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'annapoorna.s.p.k@gmail.com'
-EMAIL_HOST_PASSWORD = 'vpyz plyc hncj nbvc'
+EMAIL_HOST_PASSWORD = 'vfer uvlh uuja kgwe'
 DEFAULT_FROM_EMAIL = 'annapoorna.s.p.k@gmail.com'
 
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-import os
-from pymongo import MongoClient
-
-# Get the MongoDB URI from environment variables or use a default
-MONGO_URI = os.getenv('MONGO_URI', 'mongodb://travel_guide-db-1:27017')
-
-# Initialize the MongoDB client
-client = MongoClient(MONGO_URI)
-
-# Select the database
-DATABASE_NAME = 'guide'
-db = client[DATABASE_NAME]

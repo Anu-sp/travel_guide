@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     environment:
-      - DB_HOST=travel_guide-db-1
+      - DB_HOST=db  # Correctly points to the MongoDB service
       - DB_NAME=guide
     networks:
       - app-network
@@ -30,4 +30,3 @@ volumes:
 
 networks:
   app-network:
-

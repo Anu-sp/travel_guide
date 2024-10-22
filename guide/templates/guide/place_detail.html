@@ -53,34 +53,47 @@
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            justify-content: center;
+            justify-content: space-between; /* Space out items */
             box-sizing: border-box;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+            gap: 20px; /* Space between the swiper and details */
+            flex-wrap: wrap; /* Allows items to stack on smaller screens */
         }
+
         .swiper {
             position: relative;
             flex: 1;
+            max-width: 600px; /* Limit max width */
             height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .swiper-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 8px;
         }
+
         .details {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             flex: 1;
+            max-width: 500px; /* Limit max width */
             padding: 20px;
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            margin-left: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         p {
             margin: 10px 0;
         }
+
         a {
             display: block;
             margin-top: 20px;
@@ -273,95 +286,95 @@
             margin-left: 1280px;
         }
         /* General Modal Styles */
-.profile-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    right: 20px; /* Align to the right */
-    top: 70px; /* Align to the top */
-    width: 500px; /* Set a fixed width */
-    height: auto; /* Height adjusts automatically */
-    max-height: 90%; /* Max height for responsiveness */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-}
+        .profile-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            right: 20px; /* Align to the right */
+            top: 70px; /* Align to the top */
+            width: 500px; /* Set a fixed width */
+            height: auto; /* Height adjusts automatically */
+            max-height: 90%; /* Max height for responsiveness */
+            overflow-y: auto; /* Enable vertical scrolling if needed */
+        }
 
-/* Modal Content Styles */
-.profile-modal-content {
-    border: #000;
-    background-color: #ffffff; /* White background */
-   
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-}
+        /* Modal Content Styles */
+        .profile-modal-content {
+            border: #000;
+            background-color: #ffffff; /* White background */
+        
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+        }
 
-/* Modal Header Styles */
-.profile-modal-header {
-    height: 40px;
-    font-size: 200%;
-    font-weight: bold;
-    background-color: #9cbee2; /* Primary color */
-    color: white; /* White text */
-    padding: 15px; /* Padding */
-    display: flex; /* Flexbox for alignment */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-}
+        /* Modal Header Styles */
+        .profile-modal-header {
+            height: 40px;
+            font-size: 200%;
+            font-weight: bold;
+            background-color: #9cbee2; /* Primary color */
+            color: white; /* White text */
+            padding: 15px; /* Padding */
+            display: flex; /* Flexbox for alignment */
+            justify-content: space-between; /* Space between items */
+            align-items: center; /* Center items vertically */
+        }
 
-/* Modal Body Styles */
-.profile-modal-body {
-    padding: 20px; /* Padding for body */
-    max-height: 70vh; /* Maximum height of body */
-}
+        /* Modal Body Styles */
+        .profile-modal-body {
+            padding: 20px; /* Padding for body */
+            max-height: 70vh; /* Maximum height of body */
+        }
 
-/* Profile Picture Styles */
-.profile-modal-body img {
-    border: 4px solid #007bff; /* Blue border */
-    border-radius: 50%;
-    
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    width: 80px; /* Set a fixed width for profile picture */
-    height: 80px; /* Set a fixed height for profile picture */
-}
+        /* Profile Picture Styles */
+        .profile-modal-body img {
+            border: 4px solid #007bff; /* Blue border */
+            border-radius: 50%;
+            
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            width: 80px; /* Set a fixed width for profile picture */
+            height: 80px; /* Set a fixed height for profile picture */
+        }
 
-/* Button Styles */
-.btn {
-    border-radius: 5px; /* Rounded buttons */
-    padding: 10px 15px; /* Button padding */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s ease; /* Transition for hover effect */
-    display: inline-block; /* Inline block for spacing */
-}
+        /* Button Styles */
+        .btn {
+            border-radius: 5px; /* Rounded buttons */
+            padding: 10px 15px; /* Button padding */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s ease; /* Transition for hover effect */
+            display: inline-block; /* Inline block for spacing */
+        }
 
-.btn-secondary {
-    background-color: #7a66d2; /* Secondary button color */
-    color: white; /* White text */
-}
+        .btn-secondary {
+            background-color: #7a66d2; /* Secondary button color */
+            color: white; /* White text */
+        }
 
-.btn-secondary:hover {
-    background-color: #5a6268; /* Darker on hover */
-}
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker on hover */
+        }
 
-.btn-danger {
-    background-color: #dc3545; /* Danger button color */
-    color: white; /* White text */
-}
+        .btn-danger {
+            background-color: #dc3545; /* Danger button color */
+            color: white; /* White text */
+        }
 
-.btn-danger:hover {
-    background-color: #c82333; /* Darker on hover */
-}
+        .btn-danger:hover {
+            background-color: #c82333; /* Darker on hover */
+        }
 
-/* Close Button Styles */
-.profile-close {
-    font-size: 20px; /* Font size */
-    cursor: pointer; /* Pointer on hover */
-}
+        /* Close Button Styles */
+        .profile-close {
+            font-size: 20px; /* Font size */
+            cursor: pointer; /* Pointer on hover */
+        }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .profile-modal {
-        width: 90%; /* Full width on smaller screens */
-        right: 5%; /* Adjust right margin for smaller screens */
-    }
-}
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .profile-modal {
+                width: 90%; /* Full width on smaller screens */
+                right: 5%; /* Adjust right margin for smaller screens */
+            }
+        }
 
 
    </style>
@@ -382,79 +395,76 @@
 
     
     <h1>{{ place.name }}</h1>
-    <div class="container">
-        {% if place.placeimage_set.all %}
-        <!-- Swiper Container -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                {% for image in place.placeimage_set.all %}
-                <div class="swiper-slide">
-                    <img src="{{ image.image.url }}" alt="{{ place.name }} image">
-                </div>
-                {% endfor %}
+<div class="container">
+    {% if place.images.all %}
+    <!-- Swiper Container -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {% for image in place.images.all %}
+            <div class="swiper-slide">
+                <img src="{{ image.image.url }}" alt="{{ place.name }} image">
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-            <!-- Add Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            {% endfor %}
         </div>
-        {% else %}
-        <p>No images available for this place.</p>
-        {% endif %}
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    {% else %}
+    <p>No images available for this place.</p>
+    {% endif %}
 
-        <!-- Details Section -->
-        <div class="details">
-            <p><strong>Description:</strong> {{ place.description }}</p>
-            <p><strong>Distance:</strong> {{ place.distance }}</p>
-            <p><strong>Best time to visit:</strong> {{ place.best_time_to_visit }}</p>
-            <p><strong>Things to Do:</strong> {{ place.things_to_do }}</p>
-            <p><strong>Entry Fee:</strong> {{ place.entry_fee }}</p>
-            <p><strong>Timings:</strong> {{ place.timings }}</p>
-            <p><strong>How to reach:</strong> {{ place.how_to_reach }}</p>
+    <!-- Details Section moved inside the container -->
+    <div class="details">
+        <p><strong>Description:</strong> {{ place.description }}</p>
+        <p><strong>Distance:</strong> {{ place.distance }}</p>
+        <p><strong>Best time to visit:</strong> {{ place.best_time_to_visit }}</p>
+        <p><strong>Things to Do:</strong> {{ place.things_to_do }}</p>
+        <p><strong>Entry Fee:</strong> {{ place.entry_fee }}</p>
+        <p><strong>Timings:</strong> {{ place.timings }}</p>
+        <p><strong>How to reach:</strong> {{ place.how_to_reach }}</p>
 
-            <!-- Trigger Modal Button -->
-            <!-- <button id="writeReviewButton">Write a Review</button> -->
-            <button id="writeReviewButton" data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">Write a Review</button>
+        <!-- Trigger Modal Button -->
+        <button id="writeReviewButton" data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">Write a Review</button>
 
-            
-            
-            <!-- Review Modal -->
-            <div id="reviewModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Write a Review</h2>
-                    <form id="reviewForm" method="POST" action="{% url 'submit_review' place.slug %}">
-                        {% csrf_token %}
-                        <input type="hidden" id="reviewId" name="reviewId">
-                        <div>
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" {% if user.is_authenticated %} value="{{ user.username }}" {% endif %} required>
-                        </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
-                        </div>
-                        <div>
-                            <label for="rating">Rating (1-5):</label>
-                            <input type="number" id="rating" name="rating" min="1" max="5" required>
-                        </div>
-                        <div>
-                            <label for="comments">Comments:</label>
-                            <textarea id="comments" name="comments" rows="4" required></textarea>
-                        </div>
-                        <button type="submit">Submit Review</button>
-                    </form>
-                </div>
+        <!-- Review Modal -->
+        <div id="reviewModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Write a Review</h2>
+                <form id="reviewForm" method="POST" action="{% url 'submit_review' place.slug %}">
+                    {% csrf_token %}
+                    <input type="hidden" id="reviewId" name="reviewId">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" {% if user.is_authenticated %} value="{{ user.username }}" {% endif %} required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+                    </div>
+                    <div>
+                        <label for="rating">Rating (1-5):</label>
+                        <input type="number" id="rating" name="rating" min="1" max="5" required>
+                    </div>
+                    <div>
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
             </div>
-            <!-- Login Prompt -->
-            <div id="loginPrompt" style="display: none;">
-                <p>You need to be logged in to submit a review.</p>
-                <a href="{% url 'login' %}?next={% url 'place_detail' place.slug %}">Log in here</a>
-
-            </div>
+        </div>
+        <!-- Login Prompt -->
+        <div id="loginPrompt" style="display: none;">
+            <p>You need to be logged in to submit a review.</p>
+            <a href="{% url 'login' %}?next={% url 'place_detail' place.slug %}">Log in here</a>
         </div>
     </div>
+</div>
+
 
      
     <div id="profileModal" class="profile-modal">

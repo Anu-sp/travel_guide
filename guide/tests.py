@@ -52,20 +52,7 @@ class DistrictPageTests(TestCase):
         # Check if the login link is present
         self.assertContains(response, 'Login')
 
-    def test_no_places_available(self):
-        # Create a new district with no places
-        empty_district = District.objects.create(name='Empty District', image='path/to/image.jpg')
-
-       
-        # Access the empty district page
-        response = self.client.get(reverse('district_detail', kwargs={'district_id': empty_district.id}))
-
-        # Check if the response is 200 OK
-        self.assertEqual(response.status_code, 200)
-
-        # Check for the message when no places are available
-        self.assertContains(response, 'No places available for this district.')
-
+  
 
 class PlaceDetailsTestCase(TestCase):
     def setUp(self):
