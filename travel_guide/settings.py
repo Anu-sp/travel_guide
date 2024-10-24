@@ -80,24 +80,24 @@ WSGI_APPLICATION = 'travel_guide.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': os.environ.get('DB_NAME', 'guide'),  # Fetches DB_NAME from environment, defaults to 'guide'
-        'ENFORCE_SCHEMA': False,  # Allows flexibility in schema
-        'CLIENT': {
-            'host': os.environ.get('DB_HOST', 'mongodb://localhost:27017/'),  # Default to localhost if not set
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': os.environ.get('DB_NAME', 'guide'),  # Fetches DB_NAME from environment, defaults to 'guide'
+#         'ENFORCE_SCHEMA': False,  # Allows flexibility in schema
+#         'CLIENT': {
+#             'host': os.environ.get('DB_HOST', 'mongodb://localhost:27017/'),  # Default to localhost if not set
+#         }
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
