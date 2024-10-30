@@ -59,7 +59,7 @@ def district_detail(request, slug):
         'places': places,
         'profile_picture_url': profile_picture_url,
     })
-
+ 
 
 
 def place_detail(request, slug):
@@ -141,7 +141,7 @@ def profile_view(request):
         form = SignupForm(instance=profile)  # Pre-fill form with current profile data
 
     return render(request, 'guide/profile.html', {'form': form})
-
+  
 
 @login_required
 def edit_profile(request):
@@ -167,7 +167,6 @@ def edit_profile(request):
 
 
 
-
 def delete_review(request, review_id):
     # Ensure that the request is a POST request
     if request.method == 'POST':
@@ -188,6 +187,7 @@ def delete_review(request, review_id):
         return redirect('place_detail', slug=place_slug)  # Corrected to use slug
 
     return HttpResponseNotFound("Invalid request method.")
+
 
 @login_required
 def submit_review(request, place_slug):

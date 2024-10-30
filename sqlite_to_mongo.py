@@ -9,7 +9,7 @@ django.setup()
 from guide.models import District, Place, PlaceImage, Review, UserProfile
 
 # MongoDB Connection Setup
-MONGO_URI = 'mongodb://localhost:27017/'  # Replace with your MongoDB URI if different
+MONGO_URI = 'mongodb://localhost:27017/'  # Replace with your MongoDB URI 
 MONGO_DB_NAME = 'guide'
 MONGO_DISTRICT_COLLECTION = 'districts'
 MONGO_PLACE_COLLECTION = 'places'
@@ -107,11 +107,11 @@ def export_data_to_mongo():
     user_profile_data = []
     for profile in user_profiles:
         profile_data = {
-            "user": profile.user.username,          # Link to the user
-            "profile_picture": str(profile.profile_picture),  # Profile picture (if any)
-            "gender": profile.gender,                # User's gender
-            "date_of_birth": profile.date_of_birth,  # User's date of birth
-            "phone_number": profile.phone_number,    # User's phone number
+            "user": profile.user.username,         
+            "profile_picture": str(profile.profile_picture), 
+            "gender": profile.gender,                
+            "date_of_birth": profile.date_of_birth,  
+            "phone_number": profile.phone_number,    
         }
         user_profile_data.append(profile_data)
 
